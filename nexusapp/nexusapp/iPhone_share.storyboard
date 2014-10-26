@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Bhz-uM-Vs6">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <scenes>
+        <!--Title-->
+        <scene sceneID="YF3-aM-5KS">
+            <objects>
+                <tableViewController storyboardIdentifier="EmailEntryView" id="Bhz-uM-Vs6" customClass="EmailEntryViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Aiy-hn-QV1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="sUB-Fj-zmR">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="VcO-Wa-kya">
+                                        <rect key="frame" x="0.0" y="99" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VcO-Wa-kya" id="gXa-Tt-ooP">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email address" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TRQ-WQ-5PB" customClass="MLPAutoCompleteTextField">
+                                                    <rect key="frame" x="20" y="6" width="300" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="TRQ-WQ-5PB" firstAttribute="centerY" secondItem="gXa-Tt-ooP" secondAttribute="centerY" id="MMm-nk-2U0"/>
+                                                <constraint firstAttribute="trailing" secondItem="TRQ-WQ-5PB" secondAttribute="trailing" id="lNA-R0-wEI"/>
+                                                <constraint firstItem="TRQ-WQ-5PB" firstAttribute="top" secondItem="gXa-Tt-ooP" secondAttribute="top" constant="6" id="wdT-EW-rwY"/>
+                                                <constraint firstItem="TRQ-WQ-5PB" firstAttribute="leading" secondItem="gXa-Tt-ooP" secondAttribute="leading" constant="20" symbolic="YES" id="xJQ-tS-9xH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="131" id="Vp6-5y-Pfg">
+                                        <rect key="frame" x="0.0" y="143" width="320" height="131"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vp6-5y-Pfg" id="ll3-Gd-ppX">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yar-ix-J6w" customClass="TextViewWithPlaceHolder">
+                                                    <rect key="frame" x="20" y="0.0" width="300" height="130"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="yar-ix-J6w" secondAttribute="bottom" id="6Kg-Qs-Zc8"/>
+                                                <constraint firstItem="yar-ix-J6w" firstAttribute="top" secondItem="ll3-Gd-ppX" secondAttribute="top" id="DEO-O1-t2L"/>
+                                                <constraint firstItem="yar-ix-J6w" firstAttribute="leading" secondItem="ll3-Gd-ppX" secondAttribute="leading" constant="20" symbolic="YES" id="nPs-6x-MpG"/>
+                                                <constraint firstAttribute="trailing" secondItem="yar-ix-J6w" secondAttribute="trailing" id="oYa-Fp-Bfc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Bhz-uM-Vs6" id="WuG-JN-rGO"/>
+                            <outlet property="delegate" destination="Bhz-uM-Vs6" id="CGB-I0-ZE3"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="hPf-Eg-x9A">
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="u5f-7x-UNs">
+                            <connections>
+                                <action selector="send:" destination="Bhz-uM-Vs6" id="zzZ-bu-sVX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="emailTableViewCell" destination="VcO-Wa-kya" id="BRK-t2-cSI"/>
+                        <outlet property="emailTextField" destination="TRQ-WQ-5PB" id="h22-ry-diW"/>
+                        <outlet property="messageTableViewCell" destination="Vp6-5y-Pfg" id="Dhh-NQ-vPW"/>
+                        <outlet property="messageTextView" destination="yar-ix-J6w" id="6d3-31-isr"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZED-Wy-xQv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="338" y="38"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

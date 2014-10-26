@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ODc-67-w7T">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <scenes>
+        <!--Journal View Controller-->
+        <scene sceneID="xuX-0h-Cq8">
+            <objects>
+                <viewController storyboardIdentifier="JournalDayView" id="3eO-ir-rlH" customClass="JournalViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e88-1T-OwV"/>
+                        <viewControllerLayoutGuide type="bottom" id="FZO-0b-f6V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7bc-Il-UIg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <userGuides>
+                            <userLayoutGuide location="161" affinity="minX"/>
+                        </userGuides>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Today" id="y7t-fI-vBu">
+                            <connections>
+                                <action selector="openTodaysJournal:" destination="3eO-ir-rlH" id="RRe-iy-8hN"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="rVI-xX-gKJ"/>
+                        <barButtonItem image="list.png" id="DEh-sm-vVY">
+                            <connections>
+                                <action selector="openJournalMonthView:" destination="3eO-ir-rlH" id="S1E-K9-lXQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="mM2-QB-yqL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="RUd-Bt-oVd"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="todayButton" destination="y7t-fI-vBu" id="DEJ-yV-S4v"/>
+                        <segue destination="88v-P2-Hx4" kind="modal" identifier="OpenMonthList" modalTransitionStyle="flipHorizontal" id="oGf-Qk-uam"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jd9-aE-5hv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2312" y="-154"/>
+        </scene>
+        <!--Journal List Controller-->
+        <scene sceneID="GJl-ZF-Zbd">
+            <objects>
+                <viewController storyboardIdentifier="JournalListView" id="SaF-fQ-giw" customClass="JournalListController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6jT-SB-ef2"/>
+                        <viewControllerLayoutGuide type="bottom" id="vXd-WN-gdX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tgQ-u9-avx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qUD-H8-n6h">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="Yhn-Ob-FxZ">
+                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="SaF-fQ-giw" id="Xe9-JV-YAN"/>
+                                    </connections>
+                                </searchBar>
+                                <connections>
+                                    <outlet property="dataSource" destination="SaF-fQ-giw" id="HmT-Rh-lXs"/>
+                                    <outlet property="delegate" destination="SaF-fQ-giw" id="wfU-6q-n9S"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="qUD-H8-n6h" secondAttribute="bottom" id="NwG-WN-uuL"/>
+                            <constraint firstItem="qUD-H8-n6h" firstAttribute="leading" secondItem="tgQ-u9-avx" secondAttribute="leading" id="VTB-Hi-Wmk"/>
+                            <constraint firstAttribute="trailing" secondItem="qUD-H8-n6h" secondAttribute="trailing" id="bZp-ZU-8XO"/>
+                            <constraint firstItem="qUD-H8-n6h" firstAttribute="top" secondItem="tgQ-u9-avx" secondAttribute="top" id="ct5-WE-Rem"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem tag="10" title="This month" id="hwh-uM-Q78">
+                            <connections>
+                                <action selector="thisMonthButtonTapped:" destination="SaF-fQ-giw" id="xXL-kk-tV7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="nbC-I9-nmS"/>
+                        <barButtonItem tag="11" image="select-date.png" id="Ept-Tp-ocn">
+                            <connections>
+                                <action selector="selectMonth:" destination="SaF-fQ-giw" id="gCs-jK-UPs"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="mdX-mM-19n">
+                        <barButtonItem key="rightBarButtonItem" title="Close" id="Ekf-3V-CBZ">
+                            <connections>
+                                <action selector="closeMonthView:" destination="SaF-fQ-giw" id="Vbz-9G-FcD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="entryListTable" destination="qUD-H8-n6h" id="xg9-c5-b7N"/>
+                        <outlet property="searchBar" destination="Yhn-Ob-FxZ" id="YHA-RK-YK0"/>
+                        <outlet property="searchDisplayController" destination="2Sb-FH-QKf" id="fow-PV-EqI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Krg-po-g94" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="2Sb-FH-QKf">
+                    <connections>
+                        <outlet property="delegate" destination="SaF-fQ-giw" id="DJZ-4C-1oM"/>
+                        <outlet property="searchBar" destination="Yhn-Ob-FxZ" id="Dlf-yg-SFW"/>
+                        <outlet property="searchContentsController" destination="SaF-fQ-giw" id="0Ym-uH-wp7"/>
+                        <outlet property="searchResultsDataSource" destination="SaF-fQ-giw" id="NKm-rv-hlo"/>
+                        <outlet property="searchResultsDelegate" destination="SaF-fQ-giw" id="2vD-Rp-d6Q"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="3227" y="-197"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="J37-yU-VYk">
+            <objects>
+                <navigationController toolbarHidden="NO" id="ODc-67-w7T" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P2f-TL-qpM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="fUt-A3-XhJ">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="3eO-ir-rlH" kind="relationship" relationship="rootViewController" id="W4I-ey-0ar"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KoQ-0a-KvH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1837" y="-173"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BNZ-IK-h8d">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="88v-P2-Hx4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eAn-HM-1Ex">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="kSl-ac-sgU">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="SaF-fQ-giw" kind="relationship" relationship="rootViewController" id="2c3-Cx-qpm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hjK-FP-ewS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2802" y="-197"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="list.png" width="24" height="24"/>
+        <image name="select-date.png" width="24" height="24"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
