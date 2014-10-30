@@ -206,17 +206,7 @@
     NSMutableArray *initialPages = [[NSMutableArray alloc] initWithCapacity:3];
 
     // TODO - use constraints instead of frame
-    CGRect rect = [ViewDisplayHelper fullScreenViewRect];
-
-    /*
-     * Portrait works better by just using self.view frame.
-     * Landscape mode will not work because the image and bar overlaps so we have to assign a top offset.
-     */
-//    if (UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
-//        rect = rect;
-//    } else {
-//        rect.origin.y = 52.0;
-//    }
+    CGRect rect = [ViewDisplayHelper contentViewRect:0 heightAdjustment:0];
     
     if (_scrollIndex.totalCount == 1) {
         NPUpload *upload = (NPUpload*)[self getUploadObjectForEntryAtIndex:0];
@@ -291,6 +281,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 - (void)viewWillAppear:(BOOL)animated

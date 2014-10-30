@@ -98,124 +98,6 @@
             <point key="canvasLocation" x="105" y="-1078"/>
         </scene>
         <!--Doc Note View Controller-->
-        <scene sceneID="UJd-9z-RM1">
-            <objects>
-                <viewController id="B9K-g5-Nwr" customClass="DocNoteViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Zle-Zi-b7P"/>
-                        <viewControllerLayoutGuide type="bottom" id="p9d-nU-5b6"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Gn4-FU-fBv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfV-IZ-bWg" customClass="DTRichTextEditorView">
-                                <rect key="frame" x="0.0" y="64" width="320" height="372"/>
-                            </scrollView>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fTf-yt-pCO">
-                                <rect key="frame" x="0.0" y="436" width="320" height="95"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bph-HX-8Hf">
-                                    <size key="itemSize" width="140" height="88"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AttachmentCell" id="LV5-6p-xRl">
-                                        <rect key="frame" x="10" y="10" width="140" height="88"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="140" height="88"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="document.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mn0-Ew-RLL">
-                                                    <rect key="frame" x="46" y="6" width="48" height="48"/>
-                                                </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="11" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdh-9P-3r1">
-                                                    <rect key="frame" x="6" y="56" width="128" height="21"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VDI-me-Rw0">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ssz-0C-Skl">
-                                        <rect key="frame" x="6" y="10" width="34" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="34" id="uhu-ac-erq"/>
-                                        </constraints>
-                                        <state key="normal" image="back.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="backButtonTapped:" destination="B9K-g5-Nwr" eventType="touchUpInside" id="46W-dF-BqD"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1X-SM-CmO">
-                                        <rect key="frame" x="48" y="11" width="218" height="21"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="V1X-SM-CmO" firstAttribute="leading" secondItem="Ssz-0C-Skl" secondAttribute="trailing" constant="8" id="Coa-yN-6Fd"/>
-                                    <constraint firstAttribute="bottom" secondItem="V1X-SM-CmO" secondAttribute="bottom" constant="12" id="NkY-St-lEF"/>
-                                    <constraint firstItem="V1X-SM-CmO" firstAttribute="top" secondItem="VDI-me-Rw0" secondAttribute="top" constant="11" id="UEQ-F3-rMT"/>
-                                    <constraint firstItem="V1X-SM-CmO" firstAttribute="leading" secondItem="VDI-me-Rw0" secondAttribute="leading" constant="48" id="yG1-TI-8f9"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="bfV-IZ-bWg" firstAttribute="leading" secondItem="Gn4-FU-fBv" secondAttribute="leading" id="3a2-3j-p2Z"/>
-                            <constraint firstAttribute="trailing" secondItem="bfV-IZ-bWg" secondAttribute="trailing" id="8h6-JS-4jv"/>
-                            <constraint firstItem="bfV-IZ-bWg" firstAttribute="top" secondItem="VDI-me-Rw0" secondAttribute="bottom" id="8lV-yh-DTX"/>
-                            <constraint firstAttribute="trailing" secondItem="fTf-yt-pCO" secondAttribute="trailing" id="L0q-yv-Dlh"/>
-                            <constraint firstItem="VDI-me-Rw0" firstAttribute="trailing" secondItem="bfV-IZ-bWg" secondAttribute="trailing" id="SLn-Jm-Ala"/>
-                            <constraint firstItem="VDI-me-Rw0" firstAttribute="top" secondItem="Gn4-FU-fBv" secondAttribute="top" constant="20" symbolic="YES" id="Xy9-6L-r7t"/>
-                            <constraint firstItem="fTf-yt-pCO" firstAttribute="top" secondItem="bfV-IZ-bWg" secondAttribute="bottom" id="YtY-pw-zWr"/>
-                            <constraint firstItem="fTf-yt-pCO" firstAttribute="leading" secondItem="Gn4-FU-fBv" secondAttribute="leading" id="pPm-NE-op0"/>
-                            <constraint firstItem="VDI-me-Rw0" firstAttribute="leading" secondItem="bfV-IZ-bWg" secondAttribute="leading" id="qbL-0g-Taf"/>
-                            <constraint firstAttribute="bottom" secondItem="bfV-IZ-bWg" secondAttribute="bottom" constant="132" id="u4f-Pv-0fU"/>
-                            <constraint firstItem="bfV-IZ-bWg" firstAttribute="top" secondItem="Gn4-FU-fBv" secondAttribute="top" constant="64" id="yYi-yb-iK2"/>
-                            <constraint firstAttribute="bottom" secondItem="fTf-yt-pCO" secondAttribute="bottom" constant="37" id="zli-D6-GMB"/>
-                        </constraints>
-                    </view>
-                    <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="9L7-fg-BuM"/>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Nku-qn-aKb"/>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="evh-EK-wsl"/>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" id="e57-B3-1w6">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Vwk-0Q-jJw"/>
-                    </navigationItem>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="attachmentsCollectionView" destination="fTf-yt-pCO" id="W3s-ad-G0g"/>
-                        <outlet property="attachmentsViewBottomSpace" destination="zli-D6-GMB" id="SfK-W2-znn"/>
-                        <outlet property="docTitleLabel" destination="V1X-SM-CmO" id="Ddh-ap-k7l"/>
-                        <outlet property="favoriteButton" destination="BSk-6c-f80" id="kg0-vx-N7M"/>
-                        <outlet property="richTextViewer" destination="bfV-IZ-bWg" id="ctb-70-iO2"/>
-                        <outlet property="richTextViewerBottomSpace" destination="u4f-Pv-0fU" id="2pr-EG-um7"/>
-                        <outlet property="richTextViewerTopSpace" destination="yYi-yb-iK2" id="4BD-os-yyP"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Odj-4g-Lsi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1414" y="-1411"/>
-        </scene>
-        <!--Doc Note View Controller-->
         <scene sceneID="qqy-EH-rgb">
             <objects>
                 <viewController id="mjJ-7q-jXj" customClass="DocNoteViewController" sceneMemberID="viewController">
@@ -229,129 +111,32 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem tag="11" image="move.png" style="plain" id="5pc-YB-pkF">
-                            <connections>
-                                <action selector="openFolderSelector:" destination="B9K-g5-Nwr" id="9kg-8o-4E8"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem tag="14" image="favorite.png" id="BSk-6c-f80">
-                            <connections>
-                                <action selector="favoriteButtonTapped:" destination="B9K-g5-Nwr" id="WyY-5F-1k2"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem tag="12" image="mail.png" style="plain" id="VTH-uz-5ZD">
-                            <connections>
-                                <action selector="openEmailEntry:" destination="B9K-g5-Nwr" id="HaD-8N-kfn"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem tag="13" style="plain" systemItem="trash" id="Aie-rE-KmB">
-                            <connections>
-                                <action selector="deleteEntry:" destination="B9K-g5-Nwr" id="bp2-z6-gAn"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem tag="11" image="move.png" style="plain" id="5pc-YB-pkF"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="8Ur-qD-1Ye"/>
+                        <barButtonItem tag="14" image="favorite.png" id="BSk-6c-f80"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="eEX-Y8-SMI"/>
+                        <barButtonItem tag="12" image="mail.png" style="plain" id="VTH-uz-5ZD"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="WBF-3p-gla"/>
+                        <barButtonItem tag="13" style="plain" systemItem="trash" id="Aie-rE-KmB"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="24T-gy-tzE"/>
+                    <navigationItem key="navigationItem" id="24T-gy-tzE">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="cXz-FG-RXz">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vDI-AI-Z55">
+                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveDoc:" destination="mjJ-7q-jXj" eventType="touchUpInside" id="gOT-W1-glo"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axg-WD-dyh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1061" y="-988"/>
-        </scene>
-        <!--Doc Note Editor View Controller-->
-        <scene sceneID="QIv-uL-qmJ">
-            <objects>
-                <viewController id="pob-4U-x56" customClass="DocNoteEditorViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="nSb-Ld-lXD"/>
-                        <viewControllerLayoutGuide type="bottom" id="Crk-Z7-GEg"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="CNj-yE-nsA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CZj-cx-6Bf">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ET-WY-QbN">
-                                        <rect key="frame" x="6" y="10" width="34" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="34" id="hRh-6M-CCP"/>
-                                        </constraints>
-                                        <state key="normal" image="back.png">
-                                            <color key="titleColor" red="0.0" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="cancelEditor:" destination="pob-4U-x56" eventType="touchUpInside" id="Vel-eK-wXV"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hdA-Op-PQY">
-                                        <rect key="frame" x="43" y="7" width="227" height="30"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMf-cC-5gc" customClass="KHFlatButton">
-                                        <rect key="frame" x="267" y="7" width="46" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="46" id="T6c-ME-31f"/>
-                                        </constraints>
-                                        <state key="normal" title="Save">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="saveDoc:" destination="pob-4U-x56" eventType="touchUpInside" id="8Hz-NZ-tOq"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="0ET-WY-QbN" firstAttribute="centerY" secondItem="hdA-Op-PQY" secondAttribute="centerY" id="0TD-pC-psd"/>
-                                    <constraint firstItem="JMf-cC-5gc" firstAttribute="baseline" secondItem="hdA-Op-PQY" secondAttribute="baseline" id="2d4-cw-VBf"/>
-                                    <constraint firstItem="JMf-cC-5gc" firstAttribute="centerY" secondItem="CZj-cx-6Bf" secondAttribute="centerY" id="8tp-wu-GuC"/>
-                                    <constraint firstAttribute="trailing" secondItem="hdA-Op-PQY" secondAttribute="trailing" constant="50" id="JRR-dX-RT6"/>
-                                    <constraint firstAttribute="trailing" secondItem="JMf-cC-5gc" secondAttribute="trailing" constant="7" id="KTK-pp-058"/>
-                                    <constraint firstItem="hdA-Op-PQY" firstAttribute="top" secondItem="CZj-cx-6Bf" secondAttribute="top" constant="7" id="Nix-WV-Rcq"/>
-                                    <constraint firstItem="JMf-cC-5gc" firstAttribute="bottom" secondItem="hdA-Op-PQY" secondAttribute="bottom" id="dzV-0m-4a3"/>
-                                    <constraint firstItem="0ET-WY-QbN" firstAttribute="leading" secondItem="CZj-cx-6Bf" secondAttribute="leading" constant="6" id="lqS-cz-epa"/>
-                                    <constraint firstItem="hdA-Op-PQY" firstAttribute="leading" secondItem="0ET-WY-QbN" secondAttribute="trailing" constant="3" id="luv-dy-h4y"/>
-                                </constraints>
-                            </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eK1-aJ-ubd" customClass="DTRichTextEditorView">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="CZj-cx-6Bf" firstAttribute="leading" secondItem="eK1-aJ-ubd" secondAttribute="leading" id="8uo-0F-xuA"/>
-                            <constraint firstItem="eK1-aJ-ubd" firstAttribute="top" secondItem="CZj-cx-6Bf" secondAttribute="bottom" id="Odo-4y-xAa"/>
-                            <constraint firstAttribute="bottom" secondItem="eK1-aJ-ubd" secondAttribute="bottom" id="gwV-dh-b4c"/>
-                            <constraint firstItem="eK1-aJ-ubd" firstAttribute="leading" secondItem="CNj-yE-nsA" secondAttribute="leading" id="ts9-Kb-U5b"/>
-                            <constraint firstAttribute="trailing" secondItem="CZj-cx-6Bf" secondAttribute="trailing" id="uBN-pI-lrx"/>
-                            <constraint firstItem="CZj-cx-6Bf" firstAttribute="top" secondItem="CNj-yE-nsA" secondAttribute="top" constant="20" symbolic="YES" id="ui6-7f-6cs"/>
-                            <constraint firstItem="eK1-aJ-ubd" firstAttribute="trailing" secondItem="CZj-cx-6Bf" secondAttribute="trailing" id="vkz-1X-Rev"/>
-                        </constraints>
-                    </view>
-                    <toolbarItems>
-                        <barButtonItem style="plain" systemItem="organize" id="6FU-aZ-OBa">
-                            <connections>
-                                <action selector="openFolderView:" destination="pob-4U-x56" id="Emj-zB-aBZ"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" id="03P-ow-25T"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="docTitleTextField" destination="hdA-Op-PQY" id="CpJ-v3-lrC"/>
-                        <outlet property="richTextEditor" destination="eK1-aJ-ubd" id="kFZ-sa-IZZ"/>
-                        <outlet property="titleWrapperView" destination="CZj-cx-6Bf" id="8zB-iQ-vnT"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6uA-ta-uJe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1773" y="-1309"/>
         </scene>
         <!--Import Doc Upload View Controller-->
         <scene sceneID="51v-yP-66G">
@@ -439,8 +224,6 @@
     </scenes>
     <resources>
         <image name="add.png" width="24" height="24"/>
-        <image name="back.png" width="24" height="24"/>
-        <image name="document.png" width="48" height="48"/>
         <image name="favorite.png" width="24" height="24"/>
         <image name="mail.png" width="24" height="24"/>
         <image name="move.png" width="24" height="24"/>

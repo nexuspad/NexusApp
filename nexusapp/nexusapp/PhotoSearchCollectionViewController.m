@@ -135,11 +135,6 @@
     self.navigationController.toolbarHidden = NO;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleEntryUpdatedNotification:) name:N_ENTRY_UPDATED object:nil];
-}
 
 - (void)didReceiveMemoryWarning
 {

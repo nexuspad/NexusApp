@@ -44,6 +44,19 @@
     [self.entryService getEntryDetail:_doc];
 }
 
+- (IBAction)saveDoc:(id)sender {
+    // Clear the old values
+    [_doc.featureValuesDict removeAllObjects];
+    
+    _doc.note = nil;
+    
+    DLog(@"%@", [_doc buildParamMap]);
+    
+    [ViewDisplayHelper displayWaiting:self.view messageText:nil];
+    [self.entryService addOrUpdateEntry:_doc];
+}
+
+
 - (void)updateServiceResult:(id)serviceResult {
     [ViewDisplayHelper dismissWaiting:self.view];
     
@@ -54,7 +67,18 @@
     } else if ([serviceResult isKindOfClass:[EntryActionResult class]]) {
         EntryActionResult *actionResponse = (EntryActionResult*)serviceResult;
 
-        if ([actionResponse.name isEqualToString:ACTION_UPDATE_ENTRY]) {
+        if ([actionResponse.name isEqualToString:ACTION_ADD_ENTRY]) {
+            if (actionResponse.success) {
+                if (actionResponse.entry != nil) {
+                    _doc.entryId = actionResponse.entry.entryId;
+                }
+                
+                NPDoc *returnedDoc = [actionResponse.entry copy];
+                
+                [NotificationUtil sendEntryUpdatedNotification:returnedDoc];
+            }
+
+        } else if ([actionResponse.name isEqualToString:ACTION_UPDATE_ENTRY]) {
             if (actionResponse.success) {
                 self.doc = (NPDoc*)actionResponse.entry;                // Make sure setDoc is called
                 [NotificationUtil sendEntryUpdatedNotification:_doc];
@@ -186,6 +210,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
 
     self.attachmentsCollectionView.dataSource = self;
     self.attachmentsCollectionView.delegate = self;

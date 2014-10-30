@@ -46,8 +46,6 @@ static float PAGE_GAP = 10.0;
         
         // Set the offset to display.
         self.contentOffset = CGPointMake(frame.size.width * ([self numberOfPages] - 2), 0);
-
-        self.backgroundColor = [UIColor redColor];
         
         [self setNeedsDisplay];
     }
