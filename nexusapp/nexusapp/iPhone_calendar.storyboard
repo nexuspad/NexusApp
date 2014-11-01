@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="GD4-eX-fOn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="GD4-eX-fOn">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--Event View Controller-->
@@ -612,7 +611,7 @@
             </objects>
             <point key="canvasLocation" x="3234" y="-24"/>
         </scene>
-        <!--Attendee Editor View Controller - Attendees-->
+        <!--Attendees-->
         <scene sceneID="7cI-i7-h5T">
             <objects>
                 <tableViewController storyboardIdentifier="AttendeeEditor" id="kGM-Mm-t5L" customClass="AttendeeEditorViewController" sceneMemberID="viewController">
@@ -659,7 +658,7 @@
             </objects>
             <point key="canvasLocation" x="4211" y="687"/>
         </scene>
-        <!--Reminder Editor View Controller - Reminders-->
+        <!--Reminders-->
         <scene sceneID="pec-aS-rmM">
             <objects>
                 <tableViewController storyboardIdentifier="ReminderEditor" id="2TX-ii-6TX" customClass="ReminderEditorViewController" sceneMemberID="viewController">
@@ -718,7 +717,7 @@
             </objects>
             <point key="canvasLocation" x="4033" y="12"/>
         </scene>
-        <!--Recurrence Editor View Controller - Repeat-->
+        <!--Repeat-->
         <scene sceneID="J3O-WK-V5g">
             <objects>
                 <tableViewController id="Ogb-Ao-qSd" customClass="RecurrenceEditorViewController" sceneMemberID="viewController">
@@ -889,7 +888,6 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="akL-cJ-WgQ">
                                                     <rect key="frame" x="136" y="5" width="51" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </switch>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -1006,13 +1004,11 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="START DATE" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O7P-ty-4zf">
                                                     <rect key="frame" x="20" y="7" width="128" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="END DATE" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rL3-6t-DPx">
                                                     <rect key="frame" x="177" y="7" width="128" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -1028,7 +1024,6 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osj-Nq-5YD" customClass="KHFlatButton">
                                                     <rect key="frame" x="27" y="7" width="120" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="Select month">
@@ -1041,7 +1036,6 @@
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KoV-3f-iVk" customClass="KHFlatButton">
                                                     <rect key="frame" x="180" y="7" width="120" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="Select weeks">
@@ -1068,7 +1062,6 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRP-I0-oCz" customClass="KHFlatButton">
                                                     <rect key="frame" x="0.0" y="217" width="88" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                                                     <state key="normal" title="Done">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1077,7 +1070,6 @@
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Os-Ls-1By" customClass="KHFlatButton">
                                                     <rect key="frame" x="107" y="7" width="106" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" title="Done">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1315,6 +1307,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Uuv-sD-aqU"/>
+        <segue reference="Zfp-cb-6dt"/>
     </inferredMetricsTieBreakers>
 </document>

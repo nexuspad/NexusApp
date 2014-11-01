@@ -10,7 +10,6 @@
 		83D6DF12B99628E24A8F08BC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 120D27CCA48D3CB3308BF5DF /* libPods.a */; };
 		A5741A2319F46F1F00574DA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5741A2219F46F1F00574DA3 /* main.m */; };
 		A5741A4019F46F1F00574DA3 /* nexusappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5741A3F19F46F1F00574DA3 /* nexusappTests.m */; };
-		A5741A4E19F471A300574DA3 /* NexusAppCore.m in Sources */ = {isa = PBXBuildFile; fileRef = A5741A4B19F471A300574DA3 /* NexusAppCore.m */; };
 		A5741A4F19F471A300574DA3 /* CoreSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = A5741A4D19F471A300574DA3 /* CoreSettings.m */; };
 		A5741A8B19F471DD00574DA3 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A5741A5219F471DD00574DA3 /* Constants.m */; };
 		A5741A8C19F471DD00574DA3 /* NPModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A5741A5419F471DD00574DA3 /* NPModule.m */; };
@@ -338,8 +337,6 @@
 		A5741A3919F46F1F00574DA3 /* nexusappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nexusappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5741A3E19F46F1F00574DA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5741A3F19F46F1F00574DA3 /* nexusappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nexusappTests.m; sourceTree = "<group>"; };
-		A5741A4A19F471A300574DA3 /* NexusAppCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NexusAppCore.h; sourceTree = "<group>"; };
-		A5741A4B19F471A300574DA3 /* NexusAppCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NexusAppCore.m; sourceTree = "<group>"; };
 		A5741A4C19F471A300574DA3 /* CoreSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreSettings.h; sourceTree = "<group>"; };
 		A5741A4D19F471A300574DA3 /* CoreSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreSettings.m; sourceTree = "<group>"; };
 		A5741A5119F471DD00574DA3 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -937,8 +934,6 @@
 				A5741AC419F4724500574DA3 /* services */,
 				A5741AA819F4720D00574DA3 /* data store */,
 				A5741A5019F471C100574DA3 /* data model */,
-				A5741A4A19F471A300574DA3 /* NexusAppCore.h */,
-				A5741A4B19F471A300574DA3 /* NexusAppCore.m */,
 				A5741A4C19F471A300574DA3 /* CoreSettings.h */,
 				A5741A4D19F471A300574DA3 /* CoreSettings.m */,
 			);
@@ -1995,7 +1990,6 @@
 				A5741AA319F471DD00574DA3 /* NPTask.m in Sources */,
 				A5741B7A19F47E2500574DA3 /* NoteCell.m in Sources */,
 				A5741B1919F472A900574DA3 /* AccountManager.m in Sources */,
-				A5741A4E19F471A300574DA3 /* NexusAppCore.m in Sources */,
 				A5741BB819F47F1400574DA3 /* PhotoUploadViewController.m in Sources */,
 				A5741C6E19F47F9800574DA3 /* OAuthViewController.m in Sources */,
 				A5741BDB19F47F2500574DA3 /* AlbumEditorViewController.m in Sources */,

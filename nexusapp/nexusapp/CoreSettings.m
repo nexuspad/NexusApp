@@ -15,6 +15,6 @@ BOOL const NP_SSL                       = YES;               // This needs to be
 NSString* const TEST_PAD_HOST           = @"";
 
 NSString* const APP_VERSION             = @"appversion";
-NSString* const CURRENT_VERSION         = @"2.5";
+NSString* const CURRENT_VERSION         = @"2.4";
 
 @end

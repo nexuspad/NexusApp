@@ -1,5 +1,25 @@
 PODS:
-  - AFNetworking (1.0)
+  - AFNetworking (2.4.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+    - AFNetworking/UIKit
+  - AFNetworking/NSURLConnection (2.4.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.4.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.4.1)
+  - AFNetworking/Security (2.4.1)
+  - AFNetworking/Serialization (2.4.1)
+  - AFNetworking/UIKit (2.4.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - DTCoreText (1.6.14):
     - DTFoundation/Core (~> 1.7.1)
     - DTFoundation/DTAnimatedGIF (~> 1.7.1)
@@ -23,7 +43,7 @@ PODS:
   - ZSSRichTextEditor (0.5.1)
 
 DEPENDENCIES:
-  - AFNetworking (= 1.0)
+  - AFNetworking (~> 2.4)
   - DTCoreText
   - ELCImagePickerController
   - KHFlatButton
@@ -35,7 +55,7 @@ DEPENDENCIES:
   - ZSSRichTextEditor
 
 SPEC CHECKSUMS:
-  AFNetworking: 64fa3b122a4edd319105c9a39ffb249f61726efc
+  AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
   DTCoreText: 1fc0aadfa238d14c6cc56035af4e2b76b958e3b1
   DTFoundation: 360bc65ab44f588611f47324b8cfb0f18e04b263
   ELCImagePickerController: 4dc83bb6ce995f4964b0080d77ad5a01141e6db2

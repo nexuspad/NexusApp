@@ -10,9 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "Constants.h"
 #import "HostInfo.h"
-#import "AFHTTPClient.h"
 #import "AFHTTPRequestOperation.h"
-
 
 @interface NPWebApiService : NPService
 

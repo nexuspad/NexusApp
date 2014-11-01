@@ -4,7 +4,7 @@ xcodeproj 'nexusapp/nexusapp.xcodeproj'
 
 platform :ios, '7.0'
 
-pod 'AFNetworking', '1.0'
+pod 'AFNetworking', '~> 2.4'
 
 pod 'DTCoreText'
 pod 'SDWebImage'

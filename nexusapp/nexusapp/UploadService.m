@@ -120,29 +120,28 @@
     return self.sessionActive;
 }
 
-- (void)postToServer:(NSString*)urlAsString data:(NSData*)data params:(NSMutableDictionary*)params {
-    NSURL *url = [NSURL URLWithString:urlAsString];
-    
+- (void)postToServer:(NSString*)urlAsString data:(NSData*)data params:(NSMutableDictionary*)params {    
     DLog(@"POST upload request to URL: %@", urlAsString);
     
     self.sessionActive = YES;
     self.shouldCancelUpload = NO;
     self.currentUploadSize = [data length];
     
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-
     NSDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:params];
     
-    NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST"
-                                                                         path:@""
-                                                                   parameters:parameters
-                                                    constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
-                                                        [formData appendPartWithFileData:data
-                                                                                    name:@"filename"
-                                                                                fileName:[params valueForKey:@"file_name"]
-                                                                                mimeType:@"image/jpeg"];
-                                                        
-    }];
+    NSError *error = nil;
+    
+    NSMutableURLRequest *request =
+    [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST"
+                                                               URLString:urlAsString
+                                                              parameters:parameters
+                                               constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+                                                   [formData appendPartWithFileData:data
+                                                                               name:@"filename"
+                                                                           fileName:[params valueForKey:@"file_name"]
+                                                                           mimeType:@"image/jpeg"];
+                                               }
+                                                                   error:&error];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     

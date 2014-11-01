@@ -9,7 +9,6 @@
 #import "StartViewController.h"
 #import "DashboardController.h"
 #import "WelcomeViewController.h"
-#import "NexusAppCore.h"
 #import "TestViewController.h"
 
 @interface StartViewController ()

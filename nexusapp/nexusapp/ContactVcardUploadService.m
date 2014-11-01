@@ -10,9 +10,6 @@
 #import "NPModule.h"
 #import "NPFolder.h"
 
-@interface ContactVcardUploadService()
-@property (nonatomic, strong) AFHTTPClient *httpClient;
-@end
 
 @implementation ContactVcardUploadService
 
@@ -20,23 +17,23 @@
     NSString *urlStr = [NSString stringWithFormat:@"%@/%@", [[HostInfo current] getApiUrl], [NPModule getModuleCode:CONTACT_MODULE]];
 
     urlStr = [NPWebApiService appendAuthParams:urlStr];
-
-    NSURL *url = [NSURL URLWithString:urlStr];
     
     DLog(@"POST upload request to URL: %@", urlStr);
     
-    if (self.httpClient == nil) {
-        self.httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-    }
+    NSError *error = nil;
     
-    NSMutableURLRequest *request = [self.httpClient multipartFormRequestWithMethod:@"POST"
-                                                                             path:@""
-                                                                       parameters:params
-                                                        constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
-                                                            [formData appendPartWithFormData:vcardData
-                                                                                        name:@"filename"];
-                                                            
-                                                        }];
+    NSMutableURLRequest *request =
+    [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST"
+                                                               URLString:urlStr
+                                                              parameters:nil
+                                               constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+                                                   [formData appendPartWithFileData:vcardData
+                                                                               name:@"filename"
+                                                                           fileName:[params valueForKey:@"file_name"]
+                                                                           mimeType:@"application/vcard+json"];
+                                               }
+                                                                   error:&error];
+
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
         

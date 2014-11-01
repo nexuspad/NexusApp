@@ -14,9 +14,6 @@
 #import "Reachability.h"
 #import "DataStore.h"
 
-@interface NPWebApiService()
-@property (nonatomic, strong) AFHTTPClient *httpClient;
-@end
 
 @implementation NPWebApiService
 
@@ -50,10 +47,13 @@
     DLog(@"POST request parameters: %@", [parameters description]);
     
     
-    NSMutableURLRequest *urlRequest = [self.httpClient requestWithMethod:@"POST"
-                                                                    path:urlAsString
-                                                              parameters:parameters];
-
+    NSError *error = nil;
+    
+    NSMutableURLRequest *urlRequest = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST"
+                                                                                    URLString:urlAsString
+                                                                                   parameters:parameters
+                                                                                        error:&error];
+    
     [urlRequest setTimeoutInterval:[NPWebApiService timeoutValue]];
     [self doRequest:urlRequest completion:completion];
 }
@@ -67,9 +67,12 @@
     
     DLog(@"DELETE request to URL: %@", urlAsString);
     
-    NSMutableURLRequest *urlRequest = [self.httpClient requestWithMethod:@"DELETE"
-                                                                    path:urlAsString
-                                                              parameters:parameters];
+    NSError *error = nil;
+    
+    NSMutableURLRequest *urlRequest = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"DELETE"
+                                                                                    URLString:urlAsString
+                                                                                   parameters:parameters
+                                                                                        error:&error];
     
     [urlRequest setTimeoutInterval:[NPWebApiService timeoutValue]];
     [self doRequest:urlRequest completion:completion];
@@ -123,18 +126,10 @@
     }];
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [self.httpClient enqueueHTTPRequestOperation:operation];
-}
-
-
-- (AFHTTPClient *)httpClient {
-    if (!_httpClient) {
-        _httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:[[HostInfo current] getApiUrl]]];
-        [self.httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
-    }
     
-    return _httpClient;
+    [[[AFHTTPRequestOperationManager manager] operationQueue] addOperation:operation];
 }
+
 
 + (float)timeoutValue {
     float timeoutSeconds = 4.0;

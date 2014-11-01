@@ -411,9 +411,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
-    // Because the editor screen hides the navigation bar, we need to make sure to un-hide it.
-    self.navigationController.navigationBarHidden = NO;
     
     if (self.currentEntryList == nil) {
         [self retrieveEntryList];
