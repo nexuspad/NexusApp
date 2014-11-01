@@ -30,7 +30,7 @@
                                                    [formData appendPartWithFileData:vcardData
                                                                                name:@"filename"
                                                                            fileName:[params valueForKey:@"file_name"]
-                                                                           mimeType:@"application/vcard+json"];
+                                                                           mimeType:@"application/octet-stream"];
                                                }
                                                                    error:&error];
 

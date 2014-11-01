@@ -108,7 +108,9 @@
 
 // This is called in EntryListFolderViewController (ADD_ACTION_SHEET)
 - (void)createNewEntry {
-    [self performSegueWithIdentifier:@"NewDoc" sender:self];
+    NPDoc *newNote = [[NPDoc alloc] init];
+    [newNote setFolder:self.currentFolder];
+    [self performSegueWithIdentifier:@"OpenDoc" sender:newNote];
 }
 
 
@@ -169,15 +171,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)doc {
     if ([segue.identifier isEqualToString:@"OpenDoc"]) {
         DocNoteViewController *viewController = (DocNoteViewController*)segue.destinationViewController;
+        viewController.entryFolder = self.currentFolder;
         viewController.doc = [doc copy];
-
-    } else if ([segue.identifier isEqualToString:@"NewDoc"]) {
-        DocNoteEditorViewController* editorController = (DocNoteEditorViewController*)[segue destinationViewController];
-        editorController.entryFolder = self.currentFolder;
-        NPDoc *newNote = [[NPDoc alloc] init];
-        newNote.folder.folderId = self.currentFolder.folderId;
-        newNote.accessInfo = [self.currentFolder.accessInfo copy];
-        editorController.doc = newNote;
     }
 }
 

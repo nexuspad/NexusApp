@@ -309,6 +309,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+
     [self initPullRefresh:self.entryListTable];
     
     CGRect rect = self.entryListTable.frame;
@@ -757,7 +760,7 @@
 
 
 - (void)moreButtonTapped:(SWTableViewCell*)cell {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@""
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
                                                     cancelButtonTitle:nil
                                                destructiveButtonTitle:nil

@@ -13,7 +13,7 @@
 - (NSDate *)beginningOfDay {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     
-    NSDateComponents *components = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:self];
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:self];
     
     return [calendar dateFromComponents:components];
 }
@@ -32,7 +32,7 @@
 - (NSDate *)beginningOfWeek {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     
-    NSDateComponents *components = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSWeekdayCalendarUnit | NSDayCalendarUnit fromDate:self];
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitWeekday | NSCalendarUnitDay fromDate:self];
     
     NSInteger offset = [components weekday] - (NSInteger)[calendar firstWeekday];
     [components setDay:[components day] - offset];
@@ -44,7 +44,7 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
     
     NSDateComponents *components = [[NSDateComponents alloc] init];
-    [components setWeek:1];
+    [components setWeekOfMonth:1];
     
     return [[calendar dateByAddingComponents:components toDate:[self beginningOfWeek] options:0] dateByAddingTimeInterval:-1];
 }
@@ -54,7 +54,7 @@
 - (NSDate *)beginningOfMonth {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     
-    NSDateComponents *components = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit fromDate:self];
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth fromDate:self];
     
     return [calendar dateFromComponents:components];
 }
@@ -73,7 +73,7 @@
 - (NSDate *)beginningOfYear {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     
-    NSDateComponents *components = [calendar components:NSYearCalendarUnit fromDate:self];
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear fromDate:self];
     
     return [calendar dateFromComponents:components];
 }

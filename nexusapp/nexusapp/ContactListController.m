@@ -336,6 +336,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     // Add navigation bar right button
     if (self.currentFolder.folderId == ROOT_FOLDER) {
         [self retrieveSharersList];

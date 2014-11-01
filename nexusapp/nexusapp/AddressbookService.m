@@ -125,6 +125,9 @@ static BOOL downloadingAddressbook;
         NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithCapacity:2];
         [params setObject:recordId forKey:@"external_id"];
         [params setObject:@"ios" forKey:@"external_src"];
+        
+        NSString *fileName = [NSString stringWithFormat:@"%@.dat", recordId];
+        [params setObject:fileName forKey:@"file_name"];
 
         [params setObject:[NSNumber numberWithDouble:[modificationDate timeIntervalSince1970]] forKey:@"update_time"];
         
@@ -178,13 +181,15 @@ static BOOL downloadingAddressbook;
                  }
                  
                  if ([addressbookArr count] > 0) {
-                     NSString *plistError;
+                     NSError *plistError;
                      NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
                      NSString *plistPath = [rootPath stringByAppendingPathComponent:@"npab.plist"];
                      
-                     NSData *plistData = [NSPropertyListSerialization dataFromPropertyList:addressbookArr
+                     NSData *plistData = [NSPropertyListSerialization dataWithPropertyList:addressbookArr
                                                                                     format:NSPropertyListXMLFormat_v1_0
-                                                                          errorDescription:&plistError];
+                                                                                   options:0
+                                                                                     error:&plistError];
+                     
                      if (plistData) {
                          [plistData writeToFile:plistPath atomically:YES];
                      } else {
@@ -205,7 +210,6 @@ static BOOL downloadingAddressbook;
 - (NSArray*)getAddressbook {
     NSMutableArray *addressbook = [[NSMutableArray alloc] init];
 
-    NSString *error;
     NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *plistPath = [rootPath stringByAppendingPathComponent:@"npab.plist"];
     
@@ -213,10 +217,13 @@ static BOOL downloadingAddressbook;
         DLog(@"Parse addressbook from npab.plist...");
         NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
         NSPropertyListFormat plistFormat;
-        NSArray *tempArr = (NSArray *)[NSPropertyListSerialization propertyListFromData:plistXML
-                                                                       mutabilityOption:NSPropertyListMutableContainersAndLeaves
-                                                                                 format:&plistFormat
-                                                                       errorDescription:&error];
+
+        NSError *error;
+        NSArray *tempArr = (NSArray*)[NSPropertyListSerialization propertyListWithData:plistXML
+                                                                               options:NSPropertyListMutableContainersAndLeaves
+                                                                                format:&plistFormat
+                                                                                 error:&error];
+
         
         for (NSDictionary *addressbookDict in tempArr) {
             NPPerson *person = [NPPerson personFromAddressbookDict:addressbookDict];

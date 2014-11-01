@@ -48,7 +48,7 @@
     // Clear the old values
     [_doc.featureValuesDict removeAllObjects];
     
-    _doc.note = nil;
+    _doc.note = [self getHTML];
     
     DLog(@"%@", [_doc buildParamMap]);
     
@@ -56,6 +56,10 @@
     [self.entryService addOrUpdateEntry:_doc];
 }
 
+- (void)serviceError:(id)serviceResult {
+    NSLog(@"NPService returned error: %@", [serviceResult description]);
+    [ViewDisplayHelper dismissWaiting:self.view];   // This shouldn't be really necessary
+}
 
 - (void)updateServiceResult:(id)serviceResult {
     [ViewDisplayHelper dismissWaiting:self.view];
@@ -212,6 +216,12 @@
     [super viewDidLoad];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    if (self.entryService == nil) {
+        self.entryService = [[EntryService alloc] init];
+    }
+    self.entryService.accessInfo = [self.entryFolder.accessInfo copy];
+    self.entryService.serviceDelegate = self;
 
     self.attachmentsCollectionView.dataSource = self;
     self.attachmentsCollectionView.delegate = self;

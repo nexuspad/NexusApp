@@ -18,8 +18,10 @@
 @interface DocNoteViewController : ZSSRichTextEditor <UICollectionViewDelegate,
                                                         UICollectionViewDataSource,
                                                         UIGestureRecognizerDelegate,
+                                                        NPDataServiceDelegate,
                                                         UIActionSheetDelegate>
 
+@property (nonatomic, strong) NPFolder *entryFolder;
 @property (nonatomic, strong) NPDoc *doc;
 
 @end

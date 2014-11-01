@@ -317,6 +317,7 @@
         NPFolder *blankFolder = [[NPFolder alloc] initWithModuleAndFolderId:_rootFolder.moduleId
                                                                    folderId:-1
                                                                  accessInfo:_rootFolder.accessInfo];
+        
         blankFolder.parentId = parentFolder.folderId;
         [segue.destinationViewController setDelegate:self];
         [segue.destinationViewController setTheNewFolder:blankFolder];

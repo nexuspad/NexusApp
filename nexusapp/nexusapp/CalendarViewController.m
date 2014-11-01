@@ -556,6 +556,18 @@
     [self retrieveEntryList];
 }
 
+- (void)handleEntryMovedNotification:(NSNotification*)notification {
+    if ([notification.object isKindOfClass:[NPEntry class]]) {
+        
+        NPEntry *movedEntry = (NPEntry*)notification.object;
+        
+        if (movedEntry.folder.moduleId == self.currentFolder.moduleId) {
+            DLog(@"CalendarViewController received notification for module %i moved entry %@ ", movedEntry.folder.moduleId, movedEntry.entryId);
+            [self.currentEntryList updateEntryInList:movedEntry];
+        }
+    }
+}
+
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:N_ENTRY_UPDATED object:nil];
