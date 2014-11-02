@@ -72,18 +72,19 @@ static LoadingOverlayView *loader = nil;
         } else if (orientation == UIDeviceOrientationFaceUp || orientation == UIDeviceOrientationUnknown) {
             if (UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
                 CGSize size = [self sizeInOrientation:orientation];
-                rect = CGRectMake(0, 0, size.width, size.height);
+                rect = CGRectMake(0, 0, size.width, size.height - 88.0);
             } else {
                 CGSize size = [self sizeInOrientation:orientation];
-                rect = CGRectMake(0, 0, size.width, size.height);
+                rect = CGRectMake(0, 0, size.width, size.height - 64.0);
             }
             
         } else {
             CGSize size = [self sizeInOrientation:orientation];
-            rect = CGRectMake(0, 0, size.width, size.height);
+            rect = CGRectMake(0, 0, size.width, size.height - 64.0);
         }
         
         rect.origin.y = offsetY;
+        rect.size.height += heightAdjustment;
 
     } else {
         UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
@@ -146,33 +147,27 @@ static LoadingOverlayView *loader = nil;
     }
 }
 
-//+ (CGSize)sizeInOrientation:(UIInterfaceOrientation)orientation {
-//    CGSize size = [UIScreen mainScreen].bounds.size;
-//    UIApplication *application = [UIApplication sharedApplication];
-//    if (UIInterfaceOrientationIsLandscape(orientation))
-//    {
-//        size = CGSizeMake(size.height, size.width);
-//    }
-//    if (application.statusBarHidden == NO)
-//    {
-//        size.height -= MIN(application.statusBarFrame.size.width, application.statusBarFrame.size.height);
-//    }
-//    return size;
-//}
 
 + (CGSize)sizeInOrientation:(UIDeviceOrientation)orientation {
     CGSize size = [UIScreen mainScreen].bounds.size;
     UIApplication *application = [UIApplication sharedApplication];
+
     if (UIInterfaceOrientationIsLandscape(orientation))
     {
-        size = CGSizeMake(size.height, size.width);
+        // We might have to do this for ios 7.
+        if (size.width < size.height) {
+            size = CGSizeMake(size.height, size.width);
+        }
     }
+    
     if (application.statusBarHidden == NO)
     {
         size.height -= MIN(application.statusBarFrame.size.width, application.statusBarFrame.size.height);
     }
+    
     return size;
 }
+
 
 + (UITableViewCell*)loadMoreCell {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LoadMoreRow"];

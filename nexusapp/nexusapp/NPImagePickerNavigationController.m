@@ -49,6 +49,10 @@
     }
 }
 
+- (BOOL)shouldSelectAsset:(ELCAsset *)asset previousCount:(NSUInteger)previousCount {
+    return true;
+}
+
 - (void)openCamera {
     if (self.photoPickerFromCamera == nil) {
         self.photoPickerFromCamera = [[UIImagePickerController alloc] init];

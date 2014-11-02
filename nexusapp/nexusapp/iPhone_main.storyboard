@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="lSd-qw-Lhf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="lSd-qw-Lhf">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--Dashboard Controller-->
@@ -119,7 +118,7 @@
             </objects>
             <point key="canvasLocation" x="-181" y="-1769"/>
         </scene>
-        <!--Welcome View Controller - NexusPad-->
+        <!--NexusPad-->
         <scene sceneID="O41-l6-dEn">
             <objects>
                 <viewController storyboardIdentifier="WelcomeView" id="bHm-bh-SRb" customClass="WelcomeViewController" sceneMemberID="viewController">
@@ -484,7 +483,7 @@
             </objects>
             <point key="canvasLocation" x="1622" y="-1268"/>
         </scene>
-        <!--Registration View Controller - New account-->
+        <!--New account-->
         <scene sceneID="aqd-Or-1MX">
             <objects>
                 <tableViewController id="PqZ-RE-46z" customClass="RegistrationViewController" sceneMemberID="viewController">

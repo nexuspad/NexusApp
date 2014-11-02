@@ -217,7 +217,9 @@ static float LABEL_HEIGHT = 12.0;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
     NSDate *firstOfMonth = [self firstOfMonthForSection:section];
-    NSRange rangeOfWeeks = [self.calendar rangeOfUnit:NSCalendarUnitWeekOfMonth inUnit:NSCalendarUnitMonth forDate:firstOfMonth];
+    
+    // ios bug. Have to use NSWeekCalendarUnit so it works in ios 7.
+    NSRange rangeOfWeeks = [self.calendar rangeOfUnit:NSWeekCalendarUnit inUnit:NSCalendarUnitMonth forDate:firstOfMonth];
     
     return rangeOfWeeks.length + 1;
 }

@@ -208,9 +208,7 @@
 		A5741CA719F49A7800574DA3 /* iPhone_doc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5741C9E19F49A7800574DA3 /* iPhone_doc.storyboard */; };
 		A5741CA819F49A7800574DA3 /* iPhone_journal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5741C9F19F49A7800574DA3 /* iPhone_journal.storyboard */; };
 		A5741CA919F49A7800574DA3 /* iPhone_share.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5741CA019F49A7800574DA3 /* iPhone_share.storyboard */; };
-		A5741CAB19F49CC000574DA3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5741CAA19F49CC000574DA3 /* Images.xcassets */; };
 		A5741CB319F49D7900574DA3 /* overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741CAD19F49D7900574DA3 /* overlay.png */; };
-		A5741CB419F49D7900574DA3 /* overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741CAE19F49D7900574DA3 /* overlay@2x.png */; };
 		A5741CB519F49D7900574DA3 /* navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741CAF19F49D7900574DA3 /* navbar.png */; };
 		A5741CB619F49D7900574DA3 /* navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741CB019F49D7900574DA3 /* navbar@2x.png */; };
 		A5741CB719F49D7900574DA3 /* activity-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741CB119F49D7900574DA3 /* activity-bar@2x.png */; };
@@ -250,7 +248,6 @@
 		A5741D2E19F49DDE00574DA3 /* direction.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741CF619F49DDE00574DA3 /* direction.png */; };
 		A5741D2F19F49DDE00574DA3 /* direction@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741CF719F49DDE00574DA3 /* direction@2x.png */; };
 		A5741D3019F49DDE00574DA3 /* upload.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741CF819F49DDE00574DA3 /* upload.png */; };
-		A5741D3119F49DDE00574DA3 /* upload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741CF919F49DDE00574DA3 /* upload@2x.png */; };
 		A5741D3219F49DDE00574DA3 /* back-to-dashboard.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741CFA19F49DDE00574DA3 /* back-to-dashboard.png */; };
 		A5741D3319F49DDE00574DA3 /* back-to-dashboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741CFB19F49DDE00574DA3 /* back-to-dashboard@2x.png */; };
 		A5741D3419F49DDE00574DA3 /* unshare.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741CFC19F49DDE00574DA3 /* unshare.png */; };
@@ -291,7 +288,6 @@
 		A5741D5719F49DDE00574DA3 /* picture-folder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741D1F19F49DDE00574DA3 /* picture-folder@2x.png */; };
 		A5741D5819F49DDE00574DA3 /* picture-note.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741D2019F49DDE00574DA3 /* picture-note.png */; };
 		A5741D5919F49DDE00574DA3 /* picture-note@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741D2119F49DDE00574DA3 /* picture-note@2x.png */; };
-		A5741D5A19F49DDE00574DA3 /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741D2219F49DDE00574DA3 /* favorite.png */; };
 		A5741D5B19F49DDE00574DA3 /* favorite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741D2319F49DDE00574DA3 /* favorite@2x.png */; };
 		A5741D5C19F49DDE00574DA3 /* is-favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741D2419F49DDE00574DA3 /* is-favorite.png */; };
 		A5741D5D19F49DDE00574DA3 /* is-favorite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741D2519F49DDE00574DA3 /* is-favorite@2x.png */; };
@@ -316,6 +312,10 @@
 		A5741D8419F49DF500574DA3 /* icon-folder-open-tree@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741D7119F49DF500574DA3 /* icon-folder-open-tree@2x.png */; };
 		A5741D8519F49DF500574DA3 /* subfolder.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741D7219F49DF500574DA3 /* subfolder.png */; };
 		A5741D8619F49DF500574DA3 /* subfolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5741D7319F49DF500574DA3 /* subfolder@2x.png */; };
+		A5BACD461A065546009D5C2D /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5BACD451A065546009D5C2D /* images.xcassets */; };
+		A5BACD4A1A06A48A009D5C2D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5BACD471A06A48A009D5C2D /* Default-568h@2x.png */; };
+		A5BACD4B1A06A48A009D5C2D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A5BACD481A06A48A009D5C2D /* Default.png */; };
+		A5BACD4C1A06A48A009D5C2D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5BACD491A06A48A009D5C2D /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -721,7 +721,6 @@
 		A5741C9E19F49A7800574DA3 /* iPhone_doc.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone_doc.storyboard; sourceTree = "<group>"; };
 		A5741C9F19F49A7800574DA3 /* iPhone_journal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone_journal.storyboard; sourceTree = "<group>"; };
 		A5741CA019F49A7800574DA3 /* iPhone_share.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone_share.storyboard; sourceTree = "<group>"; };
-		A5741CAA19F49CC000574DA3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = nexusapp/Images.xcassets; sourceTree = "<group>"; };
 		A5741CAD19F49D7900574DA3 /* overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overlay.png; sourceTree = "<group>"; };
 		A5741CAE19F49D7900574DA3 /* overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlay@2x.png"; sourceTree = "<group>"; };
 		A5741CAF19F49D7900574DA3 /* navbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar.png; sourceTree = "<group>"; };
@@ -829,6 +828,10 @@
 		A5741D7119F49DF500574DA3 /* icon-folder-open-tree@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-folder-open-tree@2x.png"; sourceTree = "<group>"; };
 		A5741D7219F49DF500574DA3 /* subfolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = subfolder.png; sourceTree = "<group>"; };
 		A5741D7319F49DF500574DA3 /* subfolder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "subfolder@2x.png"; sourceTree = "<group>"; };
+		A5BACD451A065546009D5C2D /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
+		A5BACD471A06A48A009D5C2D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A5BACD481A06A48A009D5C2D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A5BACD491A06A48A009D5C2D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A84086868BFA3F6D9668F20D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -868,8 +871,8 @@
 		A5741A1419F46F1F00574DA3 = {
 			isa = PBXGroup;
 			children = (
+				A5BACD451A065546009D5C2D /* images.xcassets */,
 				A5741A1F19F46F1F00574DA3 /* nexusapp */,
-				A5741CAA19F49CC000574DA3 /* Images.xcassets */,
 				A5741A3C19F46F1F00574DA3 /* nexusappTests */,
 				A5741A1E19F46F1F00574DA3 /* Products */,
 				D0A575292EEA2228C5DE30E0 /* Pods */,
@@ -1505,6 +1508,9 @@
 				A5741CB019F49D7900574DA3 /* navbar@2x.png */,
 				A5741CB119F49D7900574DA3 /* activity-bar@2x.png */,
 				A5741CB219F49D7900574DA3 /* activity-bar.png */,
+				A5BACD471A06A48A009D5C2D /* Default-568h@2x.png */,
+				A5BACD481A06A48A009D5C2D /* Default.png */,
+				A5BACD491A06A48A009D5C2D /* Default@2x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -1742,6 +1748,7 @@
 				A5741D3F19F49DDE00574DA3 /* open-folder@2x.png in Resources */,
 				A5741D8519F49DF500574DA3 /* subfolder.png in Resources */,
 				A5741D3019F49DDE00574DA3 /* upload.png in Resources */,
+				A5BACD4C1A06A48A009D5C2D /* Default@2x.png in Resources */,
 				A5741CE719F49DCA00574DA3 /* photo.png in Resources */,
 				A5741CDE19F49DCA00574DA3 /* icon-calendar.png in Resources */,
 				A5741D3A19F49DDE00574DA3 /* go-up.png in Resources */,
@@ -1764,6 +1771,7 @@
 				A5741D5119F49DDE00574DA3 /* unshare-folder@2x.png in Resources */,
 				A5741D5019F49DDE00574DA3 /* unshare-folder.png in Resources */,
 				A5741D4B19F49DDE00574DA3 /* mail@2x.png in Resources */,
+				A5BACD4B1A06A48A009D5C2D /* Default.png in Resources */,
 				A5741D3819F49DDE00574DA3 /* close.png in Resources */,
 				A5741D3C19F49DDE00574DA3 /* settings.png in Resources */,
 				A5741CE919F49DCA00574DA3 /* photo@2x.png in Resources */,
@@ -1775,6 +1783,7 @@
 				A5741D4719F49DDE00574DA3 /* arrow-down@2x.png in Resources */,
 				A5741D3D19F49DDE00574DA3 /* settings@2x.png in Resources */,
 				A5741D8119F49DF500574DA3 /* icon-folder-tree-last.png in Resources */,
+				A5BACD461A065546009D5C2D /* images.xcassets in Resources */,
 				A5741CE319F49DCA00574DA3 /* bookmark.png in Resources */,
 				A5741CE419F49DCA00574DA3 /* calendar.png in Resources */,
 				A5741C9019F4973800574DA3 /* Notepaper_bottom.png in Resources */,
@@ -1783,11 +1792,8 @@
 				A5741D4319F49DDE00574DA3 /* back@2x.png in Resources */,
 				A5741CA319F49A7800574DA3 /* iPhone_contact.storyboard in Resources */,
 				A5741D8019F49DF500574DA3 /* icon-folder-tree@2x.png in Resources */,
-				A5741CAB19F49CC000574DA3 /* Images.xcassets in Resources */,
-				A5741CB419F49D7900574DA3 /* overlay@2x.png in Resources */,
-				A5741D5A19F49DDE00574DA3 /* favorite.png in Resources */,
-				A5741D3119F49DDE00574DA3 /* upload@2x.png in Resources */,
 				A5741D7A19F49DF500574DA3 /* add-folder.png in Resources */,
+				A5BACD4A1A06A48A009D5C2D /* Default-568h@2x.png in Resources */,
 				A5741CA819F49A7800574DA3 /* iPhone_journal.storyboard in Resources */,
 				A5741D8219F49DF500574DA3 /* icon-folder-tree-last@2x.png in Resources */,
 				A5741CEC19F49DCA00574DA3 /* journal@2x.png in Resources */,
@@ -2166,7 +2172,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2190,7 +2197,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				INFOPLIST_FILE = nexusapp/Info.plist;
+				INFOPLIST_FILE = "nexusapp/nexusapp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -2202,7 +2210,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				INFOPLIST_FILE = nexusapp/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				INFOPLIST_FILE = "nexusapp/nexusapp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
