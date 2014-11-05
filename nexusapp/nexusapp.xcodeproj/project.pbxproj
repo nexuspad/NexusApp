@@ -88,7 +88,7 @@
 		A5741B3319F4734000574DA3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5741B3219F4734000574DA3 /* CoreData.framework */; };
 		A5741B3519F4734C00574DA3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5741B3419F4734C00574DA3 /* Foundation.framework */; };
 		A5741B3A19F47D6300574DA3 /* NexusAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5741B3819F47D6300574DA3 /* NexusAppDelegate.m */; };
-		A5741B3B19F47D6300574DA3 /* nexusapp-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5741B3919F47D6300574DA3 /* nexusapp-Info.plist */; };
+		A5741B3B19F47D6300574DA3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5741B3919F47D6300574DA3 /* Info.plist */; };
 		A5741B4019F47DD800574DA3 /* DoAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5741B3F19F47DD800574DA3 /* DoAlertView.m */; };
 		A5741B6F19F47E2500574DA3 /* LoadingOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5741B4319F47E2500574DA3 /* LoadingOverlayView.m */; };
 		A5741B7019F47E2500574DA3 /* ViewDisplayHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A5741B4519F47E2500574DA3 /* ViewDisplayHelper.m */; };
@@ -332,7 +332,6 @@
 		120D27CCA48D3CB3308BF5DF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		819D692040B5DE166757AA64 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A5741A1D19F46F1F00574DA3 /* nexusapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nexusapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A5741A2119F46F1F00574DA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5741A2219F46F1F00574DA3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5741A3919F46F1F00574DA3 /* nexusappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nexusappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5741A3E19F46F1F00574DA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -489,7 +488,7 @@
 		A5741B3419F4734C00574DA3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A5741B3719F47D6300574DA3 /* NexusAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NexusAppDelegate.h; sourceTree = "<group>"; };
 		A5741B3819F47D6300574DA3 /* NexusAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NexusAppDelegate.m; sourceTree = "<group>"; };
-		A5741B3919F47D6300574DA3 /* nexusapp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "nexusapp-Info.plist"; sourceTree = "<group>"; };
+		A5741B3919F47D6300574DA3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5741B3E19F47DD800574DA3 /* DoAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoAlertView.h; sourceTree = "<group>"; };
 		A5741B3F19F47DD800574DA3 /* DoAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoAlertView.m; sourceTree = "<group>"; };
 		A5741B4219F47E2500574DA3 /* LoadingOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingOverlayView.h; sourceTree = "<group>"; };
@@ -905,8 +904,7 @@
 			children = (
 				A5741B3719F47D6300574DA3 /* NexusAppDelegate.h */,
 				A5741B3819F47D6300574DA3 /* NexusAppDelegate.m */,
-				A5741B3919F47D6300574DA3 /* nexusapp-Info.plist */,
-				A5741A2119F46F1F00574DA3 /* Info.plist */,
+				A5741B3919F47D6300574DA3 /* Info.plist */,
 				A5741A2219F46F1F00574DA3 /* main.m */,
 				A5741CAC19F49CE400574DA3 /* images */,
 			);
@@ -1823,7 +1821,7 @@
 				A5741D3319F49DDE00574DA3 /* back-to-dashboard@2x.png in Resources */,
 				A5741CC019F49DBD00574DA3 /* whiteArrow@2x.png in Resources */,
 				A5741D5C19F49DDE00574DA3 /* is-favorite.png in Resources */,
-				A5741B3B19F47D6300574DA3 /* nexusapp-Info.plist in Resources */,
+				A5741B3B19F47D6300574DA3 /* Info.plist in Resources */,
 				A5741D3E19F49DDE00574DA3 /* open-folder.png in Resources */,
 				A5741D5819F49DDE00574DA3 /* picture-note.png in Resources */,
 				A5741D5519F49DDE00574DA3 /* contact-folder@2x.png in Resources */,
@@ -2197,7 +2195,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				INFOPLIST_FILE = "nexusapp/nexusapp-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/nexusapp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2211,7 +2209,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				INFOPLIST_FILE = "nexusapp/nexusapp-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/nexusapp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

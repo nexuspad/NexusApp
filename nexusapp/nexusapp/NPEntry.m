@@ -394,7 +394,7 @@
             }
             
             if ([dict valueForKey:ATTACHMENT_FILE_SIZE] != nil) {
-                file.fileSize = [[dict valueForKey:ATTACHMENT_FILE_SIZE] longLongValue];
+                file.fileSize = [[dict valueForKey:ATTACHMENT_FILE_SIZE] longValue];
             }
             
             if ([dict valueForKey:ATTACHMENT_FILE_LINK] != nil) {

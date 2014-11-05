@@ -156,8 +156,8 @@
             
         } else {
             if (self.progressDelegate != nil) {
-                [self.progressDelegate updateProgress:[NSNumber numberWithInteger:totalBytesWritten]
-                                     totalUploadBytes:[NSNumber numberWithInteger:self.currentUploadSize]
+                [self.progressDelegate updateProgress:[NSNumber numberWithLongLong:totalBytesWritten]
+                                     totalUploadBytes:[NSNumber numberWithLongLong:self.currentUploadSize]
                                            sessionKey:self.uploadSessionKey];
             }
         }

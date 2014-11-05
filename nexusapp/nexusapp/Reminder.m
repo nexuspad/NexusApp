@@ -30,7 +30,7 @@
 
     if (self) {
         if ([reminderDict valueForKey:EVENT_REMINDER_OFFSET_TS] != nil) {
-            self.offsetTs = [[reminderDict valueForKey:EVENT_REMINDER_OFFSET_TS] longLongValue];
+            self.offsetTs = [[reminderDict valueForKey:EVENT_REMINDER_OFFSET_TS] longValue];
             
             NSInteger days = self.offsetTs/86400;
             if (days > 0) {
