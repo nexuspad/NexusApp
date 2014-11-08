@@ -214,7 +214,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    self.shouldShowKeyboard = NO;
+
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     if (self.entryService == nil) {
