@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="boF-9X-koJ">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
@@ -111,13 +112,29 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem tag="11" image="move.png" style="plain" id="5pc-YB-pkF"/>
+                        <barButtonItem tag="11" image="move.png" style="plain" id="5pc-YB-pkF">
+                            <connections>
+                                <action selector="openFolderView:" destination="mjJ-7q-jXj" id="Su1-vF-nkQ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="8Ur-qD-1Ye"/>
-                        <barButtonItem tag="14" image="favorite.png" id="BSk-6c-f80"/>
+                        <barButtonItem tag="14" image="favorite.png" id="BSk-6c-f80">
+                            <connections>
+                                <action selector="favoriteButtonTapped:" destination="mjJ-7q-jXj" id="4k1-Mn-yPO"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="eEX-Y8-SMI"/>
-                        <barButtonItem tag="12" image="mail.png" style="plain" id="VTH-uz-5ZD"/>
+                        <barButtonItem tag="12" image="mail.png" style="plain" id="VTH-uz-5ZD">
+                            <connections>
+                                <action selector="openEmailEntry:" destination="mjJ-7q-jXj" id="jlI-pv-MJv"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="WBF-3p-gla"/>
-                        <barButtonItem tag="13" style="plain" systemItem="trash" id="Aie-rE-KmB"/>
+                        <barButtonItem tag="13" style="plain" systemItem="trash" id="Aie-rE-KmB">
+                            <connections>
+                                <action selector="deleteEntry:" destination="mjJ-7q-jXj" id="ljY-Rb-t1H"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="24T-gy-tzE">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="cXz-FG-RXz">
@@ -133,6 +150,9 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="favoriteButton" destination="BSk-6c-f80" id="cv8-pX-yyA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axg-WD-dyh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

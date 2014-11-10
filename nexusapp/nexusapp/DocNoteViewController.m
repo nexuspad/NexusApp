@@ -9,6 +9,7 @@
 #import "DocNoteViewController.h"
 #import "ViewDisplayHelper.h"
 #import "EntryEditorTableViewController.h"
+#import "EmailEntryViewController.h"
 #import "UIColor+NPColor.h"
 #import "NSAttributedString+HTML.h"
 #import "UIBarButtonItem+NPUtil.h"
@@ -92,15 +93,41 @@
     }
 }
 
-- (IBAction)backButtonTapped:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
 - (IBAction)favoriteButtonTapped:(id)sender {
     if ([_doc isPinned]) {
         [self.entryService updateAttribute:_doc attributeName:ENTRY_PINNED attributeValue:@"0"];    // Toggle off
     } else {
         [self.entryService updateAttribute:_doc attributeName:ENTRY_PINNED attributeValue:@"1"];    // Toggle on
+    }
+}
+
+- (IBAction)openEmailEntry:(id)sender {
+    NPEntry *currentEntry = [self getCurrentEntry];
+    
+    if (currentEntry != nil) {
+        UIStoryboard *shareStoryBoard = [UIStoryboard storyboardWithName:@"iPhone_share" bundle:nil];
+        EmailEntryViewController* emailEntryController = [shareStoryBoard instantiateViewControllerWithIdentifier:@"EmailEntryView"];
+        emailEntryController.theEntry = [currentEntry copy];
+        
+        [self.navigationController pushViewController:emailEntryController animated:YES];
+    }
+}
+
+- (IBAction)deleteEntry:(id)sender {
+    NPEntry *currentEntry = [self getCurrentEntry];
+    
+    if (currentEntry != nil) {
+        NSString *message = [NSLocalizedString(@"Are you sure you want to delete this",)
+                             stringByAppendingFormat:@" %@?", [NPModule getModuleEntryName:currentEntry.folder.moduleId templateId:currentEntry.templateId]];
+        
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:message
+                                                                 delegate:self
+                                                        cancelButtonTitle:NSLocalizedString(@"Cancel",)
+                                                   destructiveButtonTitle:NSLocalizedString(@"Delete",)
+                                                        otherButtonTitles:nil];
+        
+        [actionSheet showFromToolbar:self.navigationController.toolbar];
     }
 }
 
@@ -246,6 +273,30 @@
     [super didReceiveMemoryWarning];
     DLog(@"Memory warning received...");
 }
+
+
+#pragma mark - open folders
+
+- (IBAction)openFolderView:(id)sender {
+    UIStoryboard *folderStoryBoard = [UIStoryboard storyboardWithName:@"iPhone_folder" bundle:nil];
+    FolderViewController* folderViewController = [folderStoryBoard instantiateViewControllerWithIdentifier:@"FolderView"];
+    
+    if (folderViewController) {
+        folderViewController.purpose = ForEntrySaving;
+        [folderViewController showFolderTree:self.entryFolder];
+        
+        folderViewController.folderViewDelegate = self;
+        [ViewDisplayHelper pushViewControllerBottomUp:self.navigationController viewController:folderViewController];
+    }
+}
+
+
+#pragma mark - FolderPickerControllerDelegate
+
+- (void)didSelectFolder:(NPFolder*)selectedFolder forAction:(FolderViewingPurpose)forAction {
+    [ViewDisplayHelper popViewControllerBottomDown:self.navigationController];
+}
+
 
 #pragma mark Properties
 

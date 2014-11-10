@@ -19,7 +19,8 @@
                                                         UICollectionViewDataSource,
                                                         UIGestureRecognizerDelegate,
                                                         NPDataServiceDelegate,
-                                                        UIActionSheetDelegate>
+                                                        UIActionSheetDelegate,
+                                                        FolderViewControllerDelegate>
 
 @property (nonatomic, strong) NPFolder *entryFolder;
 @property (nonatomic, strong) NPDoc *doc;
