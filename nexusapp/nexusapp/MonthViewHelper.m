@@ -242,9 +242,9 @@
     rect.size.height = 55.0*eventCount + 44.0;          // 44 is the section header height
     
     // table y position
-    float yPos = self.parentView.frame.size.height - 44.0 - rect.size.height;
+    float yPos = self.parentView.frame.size.height - 5.0 - rect.size.height;
     if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
-        yPos = self.parentView.frame.size.height - 32.0 - rect.size.height;
+        yPos = self.parentView.frame.size.height - 5.0 - rect.size.height;
     }
     
     rect.origin.y = yPos;
