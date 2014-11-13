@@ -25,7 +25,7 @@
     NSMutableURLRequest *request =
     [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST"
                                                                URLString:urlStr
-                                                              parameters:nil
+                                                              parameters:params
                                                constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                                                    [formData appendPartWithFileData:vcardData
                                                                                name:@"filename"
