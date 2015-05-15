@@ -415,27 +415,27 @@
 
 #pragma mark - switch to album list
 
-- (IBAction)segmentedControlValueChanged:(id)sender {
-    if (self.photoAlbumSwitch.selectedSegmentIndex == 1) {      // Switch to album list view
-        AlbumListController *albumListController = [self.storyboard instantiateViewControllerWithIdentifier:@"AlbumList"];
-
-        albumListController.currentFolder = [[NPFolder alloc] initWithModuleAndFolderId:PHOTO_MODULE
-                                                                                 folderId:0
-                                                                               accessInfo:self.currentFolder.accessInfo];
-
-        NSMutableArray *controllers = [[NSMutableArray alloc] init];
-        
-        for (UIViewController *controller in self.navigationController.viewControllers) {
-            [controllers addObject:controller];
-            if ([controller isKindOfClass:[DashboardController class]]) {
-                break;
-            }
-        }
-        
-        [controllers addObject:albumListController];
-        [self.navigationController setViewControllers:controllers animated:YES];
-    }
-}
+//- (IBAction)segmentedControlValueChanged:(id)sender {
+//    if (self.photoAlbumSwitch.selectedSegmentIndex == 1) {      // Switch to album list view
+//        AlbumListController *albumListController = [self.storyboard instantiateViewControllerWithIdentifier:@"AlbumList"];
+//
+//        albumListController.currentFolder = [[NPFolder alloc] initWithModuleAndFolderId:PHOTO_MODULE
+//                                                                                 folderId:0
+//                                                                               accessInfo:self.currentFolder.accessInfo];
+//
+//        NSMutableArray *controllers = [[NSMutableArray alloc] init];
+//        
+//        for (UIViewController *controller in self.navigationController.viewControllers) {
+//            [controllers addObject:controller];
+//            if ([controller isKindOfClass:[DashboardController class]]) {
+//                break;
+//            }
+//        }
+//        
+//        [controllers addObject:albumListController];
+//        [self.navigationController setViewControllers:controllers animated:YES];
+//    }
+//}
 
 - (void)createNewEntry {    
     ELCAlbumPickerController *albumPickerController = [[ELCAlbumPickerController alloc] init];
@@ -588,8 +588,8 @@
     if (self.currentFolder.folderId == ROOT_FOLDER) {
         [items addObject:[self.toolbarItemsLoadedInStoryboard objectForKey:TOOLBAR_ITEM_FOLDER_PICKER]];
         [items addObject:spacer];
-        [items addObject:[self.toolbarItemsLoadedInStoryboard objectForKey:TOOLBAR_ITEM_VIEW_SWITCHER]];
-        [items addObject:spacer];
+//        [items addObject:[self.toolbarItemsLoadedInStoryboard objectForKey:TOOLBAR_ITEM_VIEW_SWITCHER]];
+//        [items addObject:spacer];
         
         if ([self.currentFolder.accessInfo iAmOwner]) {
             [items addObject:[self.toolbarItemsLoadedInStoryboard objectForKey:TOOLBAR_ITEM_ADD]];
@@ -600,8 +600,8 @@
     } else {
         [items addObject:[self.toolbarItemsLoadedInStoryboard objectForKey:TOOLBAR_ITEM_FOLDER_PICKER]];
         [items addObject:spacer];
-        [items addObject:[self.toolbarItemsLoadedInStoryboard objectForKey:TOOLBAR_ITEM_VIEW_SWITCHER]];
-        [items addObject:spacer];
+//        [items addObject:[self.toolbarItemsLoadedInStoryboard objectForKey:TOOLBAR_ITEM_VIEW_SWITCHER]];
+//        [items addObject:spacer];
 
         if ([self.currentFolder.accessInfo iCanWrite]) {
             [items addObject:[self.toolbarItemsLoadedInStoryboard objectForKey:TOOLBAR_ITEM_ADD]];
