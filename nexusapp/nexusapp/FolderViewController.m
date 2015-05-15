@@ -555,7 +555,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleFolderMovedNotification:) name:N_FOLDER_MOVED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleFolderDeletedNotification:) name:N_FOLDER_DELETED object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
 
 }
 
