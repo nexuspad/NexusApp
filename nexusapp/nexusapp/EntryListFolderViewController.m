@@ -13,6 +13,7 @@
 #import "AlbumListController.h"
 #import "DocListController.h"
 #import "NPModule.h"
+#import "EntryActionResult.h"
 #import "FolderUpdaterController.h"
 #import "FolderCreateController.h"
 #import "FolderActionResult.h"
@@ -57,6 +58,20 @@
         } else if ([actionResponse.name isEqualToString:ACTION_MOVE_FOLDER]) {
             NPFolder *returnedFolder = [actionResponse.folder copy];
             [NotificationUtil sendFolderMovedNotification:returnedFolder];
+        }
+        
+    } else if ([serviceResult isKindOfClass:[EntryActionResult class]]) {
+        EntryActionResult *actionResponse = (EntryActionResult*)serviceResult;
+        if (actionResponse.success) {
+            //
+            // Use the notification route so the same logic only appears in handleEntryDeletedNotification
+            //
+            //
+            if ([actionResponse.name isEqualToString:ACTION_REFRESH_ENTRIES]) {
+                [NotificationUtil sendEntryDeletedNotification:[actionResponse.entries objectAtIndex:0]];
+            } else if ([actionResponse.name isEqualToString:ACTION_DELETE_ENTRY]) {
+                [NotificationUtil sendEntryDeletedNotification:actionResponse.entry];
+            }
         }
     }
 }
@@ -731,30 +746,64 @@
     folderCell.rightUtilityButtons = rightUtilityButtons;
 }
 
+- (void)configureEntryCell:(UITableViewCell*)cell {
+    if (![cell isKindOfClass:[SWTableViewCell class]]) {
+        return;
+    }
+    
+    SWTableViewCell *entryCell = (SWTableViewCell*)cell;
+    
+    entryCell.delegate = self;
+        
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
+                                                title:@"Trash"];
+    
+    entryCell.leftUtilityButtons = nil;
+    entryCell.rightUtilityButtons = rightUtilityButtons;
+}
+
 
 // Delegate to handle the utility button
 - (void)swipeableTableViewCell:(SWTableViewCell*)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    NSString *cellId = cell.reuseIdentifier;
+
     NSIndexPath *indexPath = [self.entryListTable indexPathForCell:cell];
-    NPFolder *folder = [self.currentEntryList.folder.subFolders objectAtIndex:indexPath.row];
     
-    switch (index) {
-        case 0:             // More
-            self.selectedFolderToUpdate = folder;
-            [self moreButtonTapped:cell];
-            break;
-            
-        case 1:
-            if ([folder.accessInfo iAmOwner]) {
-                self.selectedFolderToDelete = folder;
-                [self deleteFolderConfirm];
-            } else {
-                self.selectedFolderToUnshare = folder;
-                [self unshareFolderButtonTapped:nil];
-            }
-            break;
-            
-        default:
-            break;
+    if ([cellId isEqualToString:@"FolderCell"]) {
+        NPFolder *folder = [self.currentEntryList.folder.subFolders objectAtIndex:indexPath.row];
+        
+        switch (index) {
+            case 0:             // More
+                self.selectedFolderToUpdate = folder;
+                [self moreButtonTapped:cell];
+                break;
+                
+            case 1:
+                if ([folder.accessInfo iAmOwner]) {
+                    self.selectedFolderToDelete = folder;
+                    [self deleteFolderConfirm];
+                } else {
+                    self.selectedFolderToUnshare = folder;
+                    [self unshareFolderButtonTapped:nil];
+                }
+                break;
+                
+            default:
+                break;
+        }
+   
+    } else if ([cellId isEqualToString:@"EntryCell"]) {
+        NPEntry *entryToDelete = [self.currentEntryList.entries objectAtIndex:indexPath.row];
+        
+        switch (index) {
+            case 0:
+                [self.entryService deleteEntry:entryToDelete];
+                break;
+            default:
+                break;
+        }
+
     }
 }
 
@@ -777,9 +826,4 @@
     
     [actionSheet showInView:self.view];
 }
-
-- (BOOL)swipeableTableViewCellShouldHideUtilityButtonsOnSwipe:(SWTableViewCell *)cell {
-    return YES;
-}
-
 @end

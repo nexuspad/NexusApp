@@ -211,7 +211,7 @@
         if ([CellIdentifier isEqualToString:@"FolderCell"]) {
             cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FolderCell"];
         } else {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+            cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         }
     }
     
@@ -251,6 +251,8 @@
             if ([self isLoadMoreRow:tableView indexPath:indexPath]) {
                 return [UITableViewCell loadMoreCell];
             }
+            
+            [self configureEntryCell:cell];
             
             entry = [self.currentEntryList.entries objectAtIndex:indexPath.row];
 
