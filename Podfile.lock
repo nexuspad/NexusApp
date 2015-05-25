@@ -1,25 +1,30 @@
 PODS:
-  - AFNetworking (2.4.1):
+  - AFNetworking (2.5.4):
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
+  - AFNetworking/NSURLConnection (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.4)
+  - AFNetworking/Security (2.5.4)
+  - AFNetworking/Serialization (2.5.4)
+  - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-    - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.4.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.4.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.4.1)
-  - AFNetworking/Security (2.4.1)
-  - AFNetworking/Serialization (2.4.1)
-  - AFNetworking/UIKit (2.4.1):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
+  - CocoaLumberjack (1.9.2):
+    - CocoaLumberjack/Extensions (= 1.9.2)
+  - CocoaLumberjack/Core (1.9.2)
+  - CocoaLumberjack/Extensions (1.9.2):
+    - CocoaLumberjack/Core
   - DTCoreText (1.6.14):
     - DTFoundation/Core (~> 1.7.1)
     - DTFoundation/DTAnimatedGIF (~> 1.7.1)
@@ -35,15 +40,27 @@ PODS:
   - KHFlatButton (1.2.0)
   - KNSemiModalViewController (0.3)
   - MLPAutoCompleteTextField (1.5)
+  - NSObject-SafeExpectations (0.0.2)
   - SDWebImage (3.7.1):
-    - SDWebImage/Core
+    - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
   - SWTableViewCell (0.3.4)
-  - TapkuLibrary (0.3.3)
-  - ZSSRichTextEditor (0.5.2.1)
+  - TapkuLibrary (0.3.8)
+  - UIAlertView+Blocks (0.8.1)
+  - WordPress-iOS-Editor (0.7):
+    - CocoaLumberjack (~> 1.9)
+    - NSObject-SafeExpectations (~> 0.0.2)
+    - UIAlertView+Blocks (~> 0.8.1)
+    - WordPress-iOS-Shared (~> 0.3.0)
+    - WordPressCom-Analytics-iOS (~> 0.0.30)
+  - WordPress-iOS-Shared (0.3):
+    - AFNetworking (~> 2.5.1)
+    - CocoaLumberjack (~> 1.9)
+  - WordPressCom-Analytics-iOS (0.0.32)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.4)
+  - AFNetworking (~> 2.5)
+  - CocoaLumberjack (~> 1.9)
   - DTCoreText
   - ELCImagePickerController
   - KHFlatButton
@@ -51,20 +68,28 @@ DEPENDENCIES:
   - MLPAutoCompleteTextField (~> 1.5)
   - SDWebImage
   - SWTableViewCell
-  - TapkuLibrary
-  - ZSSRichTextEditor (~> 0.5.2.1)
+  - TapkuLibrary (~> 0.3.8)
+  - UIAlertView+Blocks (~> 0.8.1)
+  - WordPress-iOS-Editor
+  - WordPress-iOS-Shared (= 0.3.0)
+  - WordPressCom-Analytics-iOS (~> 0.0.4)
 
 SPEC CHECKSUMS:
-  AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
-  DTCoreText: 1fc0aadfa238d14c6cc56035af4e2b76b958e3b1
-  DTFoundation: 721a63964fb9acd64cb8c9d3d1642ee60bac3d6a
-  ELCImagePickerController: 4dc83bb6ce995f4964b0080d77ad5a01141e6db2
-  KHFlatButton: 2cec6590651e97ae68242b277986e8526af65127
-  KNSemiModalViewController: 6fb1e2f6a4d84238b524cb705e91118b0fa6bbc9
-  MLPAutoCompleteTextField: 5e440aa7b139258f779db3375dd486421959be15
-  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
-  SWTableViewCell: 169334f3bd63f2525a070208cc876d17c0f0c9cf
-  TapkuLibrary: dc047de085cf71b49edb5a02eccc61595f460433
-  ZSSRichTextEditor: 742425fd433c973ab9145922629487d5623d68c3
+  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  CocoaLumberjack: 628fca2e88ef06f7cf6817309aa405f325d9a6fa
+  DTCoreText: be48bbe94562eeb24b29110d25bd9d0dcc566a6c
+  DTFoundation: 2c2c962543590837924ddb295b253980b7ef3133
+  ELCImagePickerController: b1b7084434a7d49f2cfc916bde1f3ba353d38de9
+  KHFlatButton: 6c91dd8a51efe879d844bc36e38f4d003f4abd14
+  KNSemiModalViewController: 8c0056377714b5170c52c65977d540200405411f
+  MLPAutoCompleteTextField: ba4d507bbff2bd4f139d4197814fc8dd39caf77e
+  NSObject-SafeExpectations: 7d7f48df90df4e11da7cfe86b64f45eff7a7f521
+  SDWebImage: ed3095af2ff88b436426037444979b917f6c5575
+  SWTableViewCell: c6d5ba17de40bf93ec0116731fd6af19cc779ab7
+  TapkuLibrary: 7a406dac46eff8595e191557eba88959f97f69b7
+  UIAlertView+Blocks: 45c3d3b7194906702d3e9a14c7ece5581505646d
+  WordPress-iOS-Editor: 5fba0792b2ca492e075815f4480105ec3fc49045
+  WordPress-iOS-Shared: 0f5281492166bb89ea09d8ab5011e871ba4f6709
+  WordPressCom-Analytics-iOS: cfa514e1c2ded6256bf2864d871e0866e38cc668
 
-COCOAPODS: 0.34.4
+COCOAPODS: 0.37.1

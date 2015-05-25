@@ -49,7 +49,8 @@
     // Clear the old values
     [_doc.featureValuesDict removeAllObjects];
     
-    _doc.note = [self getHTML];
+    _doc.title = self.titleText;
+    _doc.note = self.bodyText;
     
     DLog(@"%@", [_doc buildParamMap]);
     
@@ -146,7 +147,8 @@
 
 // Load whole doc view screen
 - (void)loadDocView {
-    [self setHTML:_doc.note];
+    self.titleText = _doc.title;
+    self.bodyText = _doc.note;
     
     self.navigationItem.title = _doc.title;
 
@@ -242,8 +244,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.shouldShowKeyboard = NO;
-
+    self.delegate = self;
+    
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     if (self.entryService == nil) {
@@ -386,36 +388,38 @@
 }
 
 
-//- (void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer {
-//    if (gestureRecognizer.state != UIGestureRecognizerStateEnded) {
-//        return;
-//    }
-//    
-//    CGPoint p = [gestureRecognizer locationInView:self.attachmentsCollectionView];
-//    
-//    NSIndexPath *indexPath = [self.attachmentsCollectionView indexPathForItemAtPoint:p];
-//    
-//    if (indexPath == nil){
-//        NSLog(@"couldn't find index path");
-//        
-//    } else {
-//        NPUpload *att = [_doc.attachments objectAtIndex:indexPath.row];
-//        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:att.fileName
-//                                                                 delegate:self
-//                                                        cancelButtonTitle:nil
-//                                                   destructiveButtonTitle:nil
-//                                                        otherButtonTitles:nil];
-//        
-//        [actionSheet addButtonWithTitle:NSLocalizedString(@"Open",)];
-//        [actionSheet addButtonWithTitle:NSLocalizedString(@"Delete",)];
-//        [actionSheet addButtonWithTitle:NSLocalizedString(@"Cancel",)];
-//        
-//        actionSheet.cancelButtonIndex = 2;
-//        actionSheet.destructiveButtonIndex = 1;
-//        
-//        actionSheet.tag = 1000 + indexPath.row;
-//        [actionSheet showInView:self.view];
-//    }
-//}
+#pragma mark - WPEditorViewControllerDelegate
+
+- (void)editorDidBeginEditing:(WPEditorViewController *)editorController
+{
+}
+
+- (void)editorDidEndEditing:(WPEditorViewController *)editorController
+{
+}
+
+- (void)editorDidFinishLoadingDOM:(WPEditorViewController *)editorController
+{
+    [self setTitleText:_doc.title];
+    [self setBodyText:_doc.note];
+}
+
+- (BOOL)editorShouldDisplaySourceView:(WPEditorViewController *)editorController
+{
+    return YES;
+}
+
+- (void)editorDidPressMedia:(WPEditorViewController *)editorController
+{
+}
+
+- (void)editorTitleDidChange:(WPEditorViewController *)editorController
+{
+}
+
+- (void)editorTextDidChange:(WPEditorViewController *)editorController
+{
+}
+
 
 @end

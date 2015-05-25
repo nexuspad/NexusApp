@@ -7,15 +7,12 @@
 //
 
 #import "EntryDetailViewController.h"
-#import "ZSSRichTextEditor.h"
+#import <WordPress-iOS-Editor/WPEditorViewController.h>
+
 #import "NPDoc.h"
 
-//@interface DocNoteViewController : EntryDetailViewController <UICollectionViewDelegate,
-//                                                                UICollectionViewDataSource,
-//                                                                UIGestureRecognizerDelegate,
-//                                                                UIActionSheetDelegate>
-
-@interface DocNoteViewController : ZSSRichTextEditor <UICollectionViewDelegate,
+@interface DocNoteViewController : WPEditorViewController <WPEditorViewControllerDelegate,
+                                                        UICollectionViewDelegate,
                                                         UICollectionViewDataSource,
                                                         UIGestureRecognizerDelegate,
                                                         NPDataServiceDelegate,
