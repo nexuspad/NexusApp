@@ -22,7 +22,7 @@
 - (BOOL)hasMoreToLoad:(UITableView*)tableView;
 - (void)loadMoreEntries;
 
-- (void)configureEntryCell:(UITableViewCell*)cell;
+- (void)configureEntryCell:(UITableViewCell*)cell forEntry:(NPEntry*)entry;
 - (void)configureFolderCell:(UITableViewCell*)cell forFolder:(NPFolder*)folder;
 
 - (void)handleFolderUpdatedNotification:(NSNotification*)notification;

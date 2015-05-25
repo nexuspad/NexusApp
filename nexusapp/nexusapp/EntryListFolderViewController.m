@@ -13,19 +13,24 @@
 #import "AlbumListController.h"
 #import "DocListController.h"
 #import "NPModule.h"
+#import "NPEntry+Attribute.h"
 #import "EntryActionResult.h"
 #import "FolderUpdaterController.h"
 #import "FolderCreateController.h"
 #import "FolderActionResult.h"
+#import "EmailEntryViewController.h"
+
 
 #define ADD_ACTION_SHEET                        1
-#define UPDATE_ACTION_SHEET                     2
+#define FOLDER_UPDATE_ACTION_SHEET              2
 #define SHARING_ACTION_SHEET                    3
+#define ENTRY_ACTION_SHEET                      4
 
 @interface EntryListFolderViewController ()
 @property (nonatomic, strong) NPFolder *selectedFolderToUpdate;
 @property (nonatomic, strong) NPFolder *selectedFolderToDelete;
 @property (nonatomic, strong) NPFolder *selectedFolderToUnshare;
+@property (nonatomic, strong) NPEntry *selectedEntry;
 @end
 
 
@@ -67,8 +72,15 @@
             // Use the notification route so the same logic only appears in handleEntryDeletedNotification
             //
             //
-            if ([actionResponse.name isEqualToString:ACTION_REFRESH_ENTRIES]) {
+            if ([actionResponse.name isEqualToString:ACTION_UPDATE_ENTRY]) {
+                if (actionResponse.success) {
+                    self.selectedEntry = actionResponse.entry;              // Make sure setBookmark is called
+                    [NotificationUtil sendEntryUpdatedNotification:self.selectedEntry];
+                }
+                
+            } else if ([actionResponse.name isEqualToString:ACTION_REFRESH_ENTRIES]) {
                 [NotificationUtil sendEntryDeletedNotification:[actionResponse.entries objectAtIndex:0]];
+                
             } else if ([actionResponse.name isEqualToString:ACTION_DELETE_ENTRY]) {
                 [NotificationUtil sendEntryDeletedNotification:actionResponse.entry];
             }
@@ -455,7 +467,7 @@
                                                     otherButtonTitles:nil];
     
     if ([self.currentFolder.accessInfo iAmOwner]) {
-        actionSheet.tag = UPDATE_ACTION_SHEET;
+        actionSheet.tag = FOLDER_UPDATE_ACTION_SHEET;
         [actionSheet addButtonWithTitle:NSLocalizedString(@"Update folder",)];
         [actionSheet addButtonWithTitle:NSLocalizedString(@"Move folder",)];
         [actionSheet addButtonWithTitle:NSLocalizedString(@"Share folder",)];
@@ -485,7 +497,7 @@
             [self openFolderCreateView];
         }
         
-    } else if (sender.tag == UPDATE_ACTION_SHEET) {                     // folder view update actions action sheet
+    } else if (sender.tag == FOLDER_UPDATE_ACTION_SHEET) {                     // folder view update actions action sheet
         
         // This must be put in the first
         if (index == sender.cancelButtonIndex) {
@@ -541,6 +553,17 @@
             
         } else if (index == sender.cancelButtonIndex) {
             self.selectedFolderToUnshare = nil;
+        }
+        
+    } else if (sender.tag == ENTRY_ACTION_SHEET) {
+        if (index == 0) {
+            [self openEmailEntry:self.selectedEntry];
+        } else if (index == 1) {
+            if ([self.selectedEntry isPinned]) {
+                [self.entryService updateAttribute:self.selectedEntry attributeName:ENTRY_PINNED attributeValue:@"0"];    // Toggle off
+            } else {
+                [self.entryService updateAttribute:self.selectedEntry attributeName:ENTRY_PINNED attributeValue:@"1"];    // Toggle on
+            }
         }
     }
 }
@@ -746,7 +769,7 @@
     folderCell.rightUtilityButtons = rightUtilityButtons;
 }
 
-- (void)configureEntryCell:(UITableViewCell*)cell {
+- (void)configureEntryCell:(UITableViewCell*)cell forEntry:(NPEntry*)entry {
     if (![cell isKindOfClass:[SWTableViewCell class]]) {
         return;
     }
@@ -756,8 +779,13 @@
     entryCell.delegate = self;
         
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
-    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
-                                                title:@"Trash"];
+    
+    if ([entry.accessInfo iAmOwner]) {
+        [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0]
+                                                    title:@"More"];
+        [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
+                                                    title:@"Trash"];
+    }
     
     entryCell.leftUtilityButtons = nil;
     entryCell.rightUtilityButtons = rightUtilityButtons;
@@ -776,7 +804,7 @@
         switch (index) {
             case 0:             // More
                 self.selectedFolderToUpdate = folder;
-                [self moreButtonTapped:cell];
+                [self folderMoreButtonTapped:cell];
                 break;
                 
             case 1:
@@ -794,11 +822,15 @@
         }
    
     } else if ([cellId isEqualToString:@"EntryCell"]) {
-        NPEntry *entryToDelete = [self.currentEntryList.entries objectAtIndex:indexPath.row];
+        NPEntry *entry = [self.currentEntryList.entries objectAtIndex:indexPath.row];
         
         switch (index) {
-            case 0:
-                [self.entryService deleteEntry:entryToDelete];
+            case 0:             // More
+                self.selectedEntry = entry;
+                [self entryMoreButtonTapped];
+                break;
+            case 1:
+                [self.entryService deleteEntry:entry];
                 break;
             default:
                 break;
@@ -808,7 +840,7 @@
 }
 
 
-- (void)moreButtonTapped:(SWTableViewCell*)cell {
+- (void)folderMoreButtonTapped:(SWTableViewCell*)cell {
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
                                                     cancelButtonTitle:nil
@@ -816,7 +848,7 @@
                                                     otherButtonTitles:nil];
     
     if ([self.currentFolder.accessInfo iAmOwner]) {
-        actionSheet.tag = UPDATE_ACTION_SHEET;
+        actionSheet.tag = FOLDER_UPDATE_ACTION_SHEET;
         [actionSheet addButtonWithTitle:NSLocalizedString(@"Update folder",)];
         [actionSheet addButtonWithTitle:NSLocalizedString(@"Move folder",)];
         [actionSheet addButtonWithTitle:NSLocalizedString(@"Share folder",)];
@@ -825,5 +857,37 @@
     }
     
     [actionSheet showInView:self.view];
+}
+
+- (void)entryMoreButtonTapped {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:nil
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+    
+    if ([self.currentFolder.accessInfo iAmOwner]) {
+        actionSheet.tag = ENTRY_ACTION_SHEET;
+        [actionSheet addButtonWithTitle:NSLocalizedString(@"Forward to email",)];
+
+        if ([self.selectedEntry isPinned]) {
+            [actionSheet addButtonWithTitle:NSLocalizedString(@"Un-pin it",)];
+        } else {
+            [actionSheet addButtonWithTitle:NSLocalizedString(@"Pin it",)];
+        }
+
+        [actionSheet addButtonWithTitle:NSLocalizedString(@"Cancel",)];
+        actionSheet.cancelButtonIndex = 2;
+    }
+    
+    [actionSheet showInView:self.view];
+}
+
+- (void)openEmailEntry:(NPEntry*) entry {
+    UIStoryboard *shareStoryBoard = [UIStoryboard storyboardWithName:@"iPhone_share" bundle:nil];
+    EmailEntryViewController* emailEntryController = [shareStoryBoard instantiateViewControllerWithIdentifier:@"EmailEntryView"];
+    emailEntryController.theEntry = [entry copy];
+    
+    [self.navigationController pushViewController:emailEntryController animated:YES];
 }
 @end

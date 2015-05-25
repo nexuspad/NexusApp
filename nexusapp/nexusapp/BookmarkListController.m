@@ -252,10 +252,10 @@
                 return [UITableViewCell loadMoreCell];
             }
             
-            [self configureEntryCell:cell];
-            
             entry = [self.currentEntryList.entries objectAtIndex:indexPath.row];
 
+            [self configureEntryCell:cell forEntry:entry];
+            
             if ([entry isPinned]) {
                 cell.imageView.image = [UIImage imageNamed:@"is-favorite.png"];
             } else {

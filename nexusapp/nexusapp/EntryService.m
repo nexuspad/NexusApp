@@ -489,7 +489,7 @@
     NSString *multiEmailStr = [message.emailAddresses componentsJoinedByString:@";"];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjects:
                                    [NSArray arrayWithObjects:multiEmailStr, message.subject, message.messageBody, nil]
-                                                                     forKeys:[NSArray arrayWithObjects:@"to_email", @"email_subject", @"email_message", nil]];
+                                                                     forKeys:[NSArray arrayWithObjects:@"email_to", @"email_subject", @"email_message", nil]];
     
     [params setObject:@"email_entry" forKey:@"action"];
 
