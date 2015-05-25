@@ -523,17 +523,15 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-//    CGRect rect;
-//
-//    if (UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
-//        rect = [ViewDisplayHelper contentViewRect:64.0 heightAdjustment:0.0];
-//    } else {
-//        rect = [ViewDisplayHelper contentViewRect:52.0 heightAdjustment:0.0];
-//    }
-//
-//    self.tableView = [[UITableView alloc] initWithFrame:rect];
+    // Set the table view size so it won't be partially blocked by the ToolBar.
+    CGRect rect = self.view.frame;
+    if (UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
+        rect.size.height = rect.size.height - 44.0*2 - 20;
+    } else {
+        rect.size.height = rect.size.height - 32.0*2 - 10;
+    }
     
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
+    self.tableView = [[UITableView alloc] initWithFrame:rect];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
@@ -554,9 +552,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleFolderUpdatedNotification:) name:N_FOLDER_UPDATED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleFolderMovedNotification:) name:N_FOLDER_MOVED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleFolderDeletedNotification:) name:N_FOLDER_DELETED object:nil];
-    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
-
 }
 
 - (void)dealloc {

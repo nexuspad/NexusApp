@@ -778,5 +778,8 @@
     [actionSheet showInView:self.view];
 }
 
+- (BOOL)swipeableTableViewCellShouldHideUtilityButtonsOnSwipe:(SWTableViewCell *)cell {
+    return YES;
+}
 
 @end

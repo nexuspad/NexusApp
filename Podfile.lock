@@ -25,17 +25,6 @@ PODS:
   - CocoaLumberjack/Core (1.9.2)
   - CocoaLumberjack/Extensions (1.9.2):
     - CocoaLumberjack/Core
-  - DTCoreText (1.6.14):
-    - DTFoundation/Core (~> 1.7.1)
-    - DTFoundation/DTAnimatedGIF (~> 1.7.1)
-    - DTFoundation/DTHTMLParser (~> 1.7.1)
-    - DTFoundation/UIKit (~> 1.7.1)
-  - DTFoundation/Core (1.7.4)
-  - DTFoundation/DTAnimatedGIF (1.7.4)
-  - DTFoundation/DTHTMLParser (1.7.4):
-    - DTFoundation/Core
-  - DTFoundation/UIKit (1.7.4):
-    - DTFoundation/Core
   - ELCImagePickerController (0.2.0)
   - KHFlatButton (1.2.0)
   - KNSemiModalViewController (0.3)
@@ -44,7 +33,7 @@ PODS:
   - SDWebImage (3.7.1):
     - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
-  - SWTableViewCell (0.3.4)
+  - SWTableViewCell (0.3.7)
   - TapkuLibrary (0.3.8)
   - UIAlertView+Blocks (0.8.1)
   - WordPress-iOS-Editor (0.7):
@@ -61,13 +50,12 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - CocoaLumberjack (~> 1.9)
-  - DTCoreText
   - ELCImagePickerController
   - KHFlatButton
   - KNSemiModalViewController
   - MLPAutoCompleteTextField (~> 1.5)
   - SDWebImage
-  - SWTableViewCell
+  - SWTableViewCell (~> 0.3.7)
   - TapkuLibrary (~> 0.3.8)
   - UIAlertView+Blocks (~> 0.8.1)
   - WordPress-iOS-Editor
@@ -77,15 +65,13 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   CocoaLumberjack: 628fca2e88ef06f7cf6817309aa405f325d9a6fa
-  DTCoreText: be48bbe94562eeb24b29110d25bd9d0dcc566a6c
-  DTFoundation: 2c2c962543590837924ddb295b253980b7ef3133
   ELCImagePickerController: b1b7084434a7d49f2cfc916bde1f3ba353d38de9
   KHFlatButton: 6c91dd8a51efe879d844bc36e38f4d003f4abd14
   KNSemiModalViewController: 8c0056377714b5170c52c65977d540200405411f
   MLPAutoCompleteTextField: ba4d507bbff2bd4f139d4197814fc8dd39caf77e
   NSObject-SafeExpectations: 7d7f48df90df4e11da7cfe86b64f45eff7a7f521
   SDWebImage: ed3095af2ff88b436426037444979b917f6c5575
-  SWTableViewCell: c6d5ba17de40bf93ec0116731fd6af19cc779ab7
+  SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
   TapkuLibrary: 7a406dac46eff8595e191557eba88959f97f69b7
   UIAlertView+Blocks: 45c3d3b7194906702d3e9a14c7ece5581505646d
   WordPress-iOS-Editor: 5fba0792b2ca492e075815f4480105ec3fc49045

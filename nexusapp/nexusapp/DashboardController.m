@@ -13,7 +13,6 @@
 #import "CalendarViewController.h"
 #import "PhotoListController.h"
 #import "DocListController.h"
-#import "JournalViewController.h"
 #import "UIColor+NPColor.h"
 #import "UserPrefUtil.h"
 #import "AddressbookService.h"
@@ -22,7 +21,6 @@
 @interface DashboardController()
 @property (weak, nonatomic) IBOutlet UITableViewCell *contactCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *calendarCell;
-@property (weak, nonatomic) IBOutlet UITableViewCell *journalCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *docCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *photoCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *bookmarkCell;
@@ -31,7 +29,6 @@
 @property (nonatomic, strong) CalendarViewController *calendarController;
 @property (nonatomic, strong) DocListController *docController;
 @property (nonatomic, strong) PhotoListController *photoController;
-@property (nonatomic, strong) JournalViewController *journalController;
 @property (nonatomic, strong) BookmarkListController *bookmarkController;
 
 @property int activeModule;
@@ -42,7 +39,7 @@
 
 @synthesize contactCell;
 @synthesize calendarCell;
-@synthesize journalCell;
+//@synthesize journalCell;
 @synthesize docCell;
 @synthesize photoCell;
 @synthesize bookmarkCell;
@@ -51,7 +48,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return 5;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath: (NSIndexPath *)indexPath
@@ -78,15 +75,15 @@
 //            self.calendarCell.textLabel.shadowOffset = CGSizeMake(0, 2);
             return self.calendarCell;
 
-        case 2:
-            self.journalCell.imageView.image = [UIImage imageNamed:@"journal.png"];
-            self.journalCell.imageView.frame = CGRectMake(0, 0, 44.0, 44.0);
-            self.journalCell.textLabel.text = NSLocalizedString(@"My Journal",);
-//            self.journalCell.textLabel.shadowColor = [UIColor whiteColor];
-//            self.journalCell.textLabel.shadowOffset = CGSizeMake(0, 2);
-            return self.journalCell;
+//        case 2:
+//            self.journalCell.imageView.image = [UIImage imageNamed:@"journal.png"];
+//            self.journalCell.imageView.frame = CGRectMake(0, 0, 44.0, 44.0);
+//            self.journalCell.textLabel.text = NSLocalizedString(@"My Journal",);
+////            self.journalCell.textLabel.shadowColor = [UIColor whiteColor];
+////            self.journalCell.textLabel.shadowOffset = CGSizeMake(0, 2);
+//            return self.journalCell;
 
-        case 3:
+        case 2:
             self.docCell.imageView.image = [UIImage imageNamed:@"doc.png"];
             self.docCell.imageView.frame = CGRectMake(0, 0, 44.0, 44.0);
             self.docCell.textLabel.text = NSLocalizedString(@"Docs and Notes",);
@@ -94,7 +91,7 @@
 //            self.docCell.textLabel.shadowOffset = CGSizeMake(0, 2);
             return self.docCell;
 
-        case 4:
+        case 3:
             self.photoCell.imageView.image = [UIImage imageNamed:@"photo.png"];
             self.photoCell.imageView.frame = CGRectMake(0, 0, 44.0, 44.0);
             self.photoCell.textLabel.text = NSLocalizedString(@"Photos",);
@@ -102,7 +99,7 @@
 //            self.photoCell.textLabel.shadowOffset = CGSizeMake(0, 2);
             return self.photoCell;
 
-        case 5:
+        case 4:
             self.bookmarkCell.imageView.image = [UIImage imageNamed:@"bookmark.png"];
             self.bookmarkCell.imageView.frame = CGRectMake(0, 0, 44.0, 44.0);
             self.bookmarkCell.textLabel.text = NSLocalizedString(@"Bookmarks",);
@@ -165,21 +162,21 @@
             
             break;
         }
+//        case 2:
+//        {
+//            self.activeModule = PLANNER_MODULE;
+//            [self.modulesOpened setObject:[[NSDate alloc] init] forKey:[NSNumber numberWithInt:self.activeModule]];
+//
+//            if (self.journalController == nil) {
+//                UIStoryboard *entryStoryBoard = [UIStoryboard storyboardWithName:@"iPhone_journal" bundle:nil];
+//                self.journalController = [entryStoryBoard instantiateViewControllerWithIdentifier:@"JournalDayView"];
+//            }
+//            self.journalController.accessInfo = [accessInfo copy];
+//            [self.navigationController pushViewController:self.journalController animated:YES];
+//
+//            break;
+//        }
         case 2:
-        {
-            self.activeModule = PLANNER_MODULE;
-            [self.modulesOpened setObject:[[NSDate alloc] init] forKey:[NSNumber numberWithInt:self.activeModule]];
-
-            if (self.journalController == nil) {
-                UIStoryboard *entryStoryBoard = [UIStoryboard storyboardWithName:@"iPhone_journal" bundle:nil];
-                self.journalController = [entryStoryBoard instantiateViewControllerWithIdentifier:@"JournalDayView"];
-            }
-            self.journalController.accessInfo = [accessInfo copy];
-            [self.navigationController pushViewController:self.journalController animated:YES];
-
-            break;
-        }
-        case 3:
         {
             self.activeModule = DOC_MODULE;
             [self.modulesOpened setObject:[[NSDate alloc] init] forKey:[NSNumber numberWithInt:self.activeModule]];
@@ -196,7 +193,7 @@
 
             break;
         }
-        case 4:
+        case 3:
         {
             self.activeModule = PHOTO_MODULE;
             [self.modulesOpened setObject:[[NSDate alloc] init] forKey:[NSNumber numberWithInt:self.activeModule]];
@@ -213,7 +210,7 @@
             
             break;
         }
-        case 5:
+        case 4:
         {
             self.activeModule = BOOKMARK_MODULE;
             [self.modulesOpened setObject:[[NSDate alloc] init] forKey:[NSNumber numberWithInt:self.activeModule]];
@@ -295,14 +292,12 @@
 {
     [self setContactCell:nil];
     [self setCalendarCell:nil];
-    [self setJournalCell:nil];
     [self setDocCell:nil];
     [self setPhotoCell:nil];
     [self setBookmarkCell:nil];
     
     self.contactController = nil;
     self.calendarController = nil;
-    self.journalController = nil;
     self.docController = nil;
     self.photoController = nil;
     self.bookmarkController = nil;
@@ -369,11 +364,6 @@
         [self.calendarController cleanupData];
         self.calendarController = nil;
         [self.modulesOpened removeObjectForKey:[NSNumber numberWithInt:CALENDAR_MODULE]];
-
-    } else if (moduleId == PLANNER_MODULE) {
-        DLog(@"]]]]]]]] Free up journal controller...");
-        self.journalController = nil;
-        [self.modulesOpened removeObjectForKey:[NSNumber numberWithInt:PLANNER_MODULE]];
 
     } else if (moduleId == DOC_MODULE) {
         DLog(@"]]]]]]]] Free up doc controller...");

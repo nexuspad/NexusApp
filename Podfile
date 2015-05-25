@@ -6,9 +6,9 @@ platform :ios, '7.0'
 
 pod 'AFNetworking', '~> 2.5'
 
-pod 'DTCoreText'
+#pod 'DTCoreText'
 pod 'SDWebImage'
-pod 'SWTableViewCell'
+pod 'SWTableViewCell', '~> 0.3.7'
 pod 'MLPAutoCompleteTextField', '~> 1.5'
 pod 'ELCImagePickerController'
 pod 'KHFlatButton'

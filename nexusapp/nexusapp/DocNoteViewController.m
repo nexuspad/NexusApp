@@ -11,7 +11,6 @@
 #import "EntryEditorTableViewController.h"
 #import "EmailEntryViewController.h"
 #import "UIColor+NPColor.h"
-#import "NSAttributedString+HTML.h"
 #import "UIBarButtonItem+NPUtil.h"
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "NPEntry+Attribute.h"
@@ -24,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *attachmentsCollectionView;
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *favoriteButton;
+@property (weak, nonatomic) IBOutlet UIButton *editOrSaveButton;
 
 @property (nonatomic, strong) NSCache *imageViewCache;
 
@@ -46,16 +46,22 @@
 }
 
 - (IBAction)saveDoc:(id)sender {
-    // Clear the old values
-    [_doc.featureValuesDict removeAllObjects];
-    
-    _doc.title = self.titleText;
-    _doc.note = self.bodyText;
-    
-    DLog(@"%@", [_doc buildParamMap]);
-    
-    [ViewDisplayHelper displayWaiting:self.view messageText:nil];
-    [self.entryService addOrUpdateEntry:_doc];
+    if (self.isEditing) {
+        // Clear the old values
+        [_doc.featureValuesDict removeAllObjects];
+        
+        _doc.title = self.titleText;
+        _doc.note = self.bodyText;
+        
+        DLog(@"%@", [_doc buildParamMap]);
+        
+        [ViewDisplayHelper displayWaiting:self.view messageText:nil];
+        [self.entryService addOrUpdateEntry:_doc];
+        
+    } else {
+        [self startEditing];
+        [self.editOrSaveButton setTitle:@"Save" forState:UIControlStateNormal];
+    }
 }
 
 - (void)serviceError:(id)serviceResult {
@@ -245,6 +251,11 @@
     [super viewDidLoad];
 
     self.delegate = self;
+    [self initWithMode:kWPEditorViewControllerModePreview];
+    
+    if (!self.isEditing) {
+        [self.editOrSaveButton setTitle:@"Edit" forState:UIControlStateNormal];
+    }
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
