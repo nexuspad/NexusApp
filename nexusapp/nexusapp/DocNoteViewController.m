@@ -250,8 +250,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.titlePlaceholderText = @"Title";
+    self.bodyPlaceholderText = @"Content";
+    
     self.delegate = self;
-    [self initWithMode:kWPEditorViewControllerModePreview];
+    
+    if (_doc.entryId != nil) {
+        [self initWithMode:kWPEditorViewControllerModePreview];   
+    }
     
     if (!self.isEditing) {
         [self.editOrSaveButton setTitle:@"Edit" forState:UIControlStateNormal];
