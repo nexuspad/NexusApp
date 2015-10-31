@@ -19,6 +19,9 @@
 #import "UIViewController+KNSemiModal.h"
 #import "DropdownButton.h"
 
+static int DAY_INDEX = 0;
+static int MONTH_INDEX = 9;
+static int AGENDA_INDEX = 1;
 
 @interface CalendarViewController ()
 @property (strong, nonatomic) UISegmentedControl *viewSegments;
@@ -263,7 +266,7 @@
     [self.monthViewHelper.monthView removeFromSuperview];
     [self.agendaViewHelper.agendaTableView removeFromSuperview];
 
-    if (self.viewSegments.selectedSegmentIndex == 0) {              // Switch to day view
+    if (self.viewSegments.selectedSegmentIndex == DAY_INDEX) {              // Switch to day view
         self.viewType = DayView;
         if (self.dayViewHelper == nil) {
             [self initCalendarViews:NO];
@@ -272,7 +275,7 @@
         [self.view addSubview:self.dayViewHelper.dayScrollView];
         [UserPrefUtil setPreference:[NSNumber numberWithInt:DayView] forKey:PREF_LAST_CALENDAR_VIEW];
         
-    } else if (self.viewSegments.selectedSegmentIndex == 1) {
+    } else if (self.viewSegments.selectedSegmentIndex == MONTH_INDEX) {
         self.viewType = MonthView;
         if (self.monthViewHelper == nil) {
             [self initCalendarViews:NO];
@@ -288,7 +291,7 @@
 
         [UserPrefUtil setPreference:[NSNumber numberWithInt:MonthView] forKey:PREF_LAST_CALENDAR_VIEW];
         
-    } else if (self.viewSegments.selectedSegmentIndex == 2) {       // Switch to agenda
+    } else if (self.viewSegments.selectedSegmentIndex == AGENDA_INDEX) {       // Switch to agenda
         self.viewType = AgendaView;
         if (self.agendaViewHelper == nil) {
             [self initCalendarViews:NO];
@@ -535,7 +538,7 @@
     
     // Initialize segmentation control
     self.viewSegments = [[UISegmentedControl alloc] initWithItems:@[NSLocalizedString(@"Day",),
-                                                                    NSLocalizedString(@"Month",),
+//                                                                    NSLocalizedString(@"Month",),
                                                                     NSLocalizedString(@"Agenda",)]];
     [self.viewSegments addTarget:self action:@selector(segmentedControlValueChanged:) forControlEvents: UIControlEventValueChanged];
 
@@ -582,11 +585,11 @@
     self.navigationController.toolbarHidden = NO;
 
     if (self.viewType == DayView) {
-        self.viewSegments.selectedSegmentIndex = 0;
+        self.viewSegments.selectedSegmentIndex = DAY_INDEX;
     } else if (self.viewType == MonthView) {
-        self.viewSegments.selectedSegmentIndex = 1;
+        self.viewSegments.selectedSegmentIndex = MONTH_INDEX;
     } else if (self.viewType == AgendaView) {
-        self.viewSegments.selectedSegmentIndex = 2;
+        self.viewSegments.selectedSegmentIndex = AGENDA_INDEX;
     }
 
 

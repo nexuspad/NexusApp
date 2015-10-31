@@ -135,7 +135,8 @@
     
     if ([self.dataRequests objectForKey:ym] != nil) {
         NSDate *lastRequestTime = [self.dataRequests objectForKey:ym];
-        NSDate *expiration = [[NSDate date] dateByAddingTimeInterval:-10];
+//        NSDate *expiration = [[NSDate date] dateByAddingTimeInterval:-10];
+        NSDate *expiration = [NSDate date];
         
         DLog(@"******** Displaying %@, Compare two dates %@, %@ ", ym, lastRequestTime, expiration);
         

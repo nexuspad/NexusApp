@@ -6,7 +6,6 @@ platform :ios, '7.0'
 
 pod 'AFNetworking', '~> 2.5'
 
-#pod 'DTCoreText'
 pod 'SDWebImage'
 pod 'SWTableViewCell', '~> 0.3.7'
 pod 'MLPAutoCompleteTextField', '~> 1.5'
@@ -14,7 +13,6 @@ pod 'ELCImagePickerController'
 pod 'KHFlatButton'
 pod 'TapkuLibrary', '~> 0.3.8'
 pod 'KNSemiModalViewController'
-#pod 'ZSSRichTextEditor', '~> 0.5.2.1'
 
 pod 'WordPress-iOS-Editor'
 pod 'CocoaLumberjack', '~>1.9', :inhibit_warnings => true
