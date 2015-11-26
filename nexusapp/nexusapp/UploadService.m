@@ -137,7 +137,7 @@
                                                               parameters:parameters
                                                constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                                                    [formData appendPartWithFileData:data
-                                                                               name:@"filename"
+                                                                               name:@"file"
                                                                            fileName:[params valueForKey:@"file_name"]
                                                                            mimeType:@"image/jpeg"];
                                                }

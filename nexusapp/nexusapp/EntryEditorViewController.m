@@ -97,10 +97,4 @@
     [super viewDidUnload];
 }
 
-- (NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskPortrait;
-}
-
-
 @end

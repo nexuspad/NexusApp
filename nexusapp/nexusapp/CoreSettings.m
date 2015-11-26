@@ -11,7 +11,6 @@
 @implementation CoreSettings
 
 NSString* const NP_ENV                  = @"prod";
-BOOL const NP_SSL                       = YES;               // This needs to be YES for final build
 NSString* const TEST_PAD_HOST           = @"";
 
 NSString* const APP_VERSION             = @"appversion";

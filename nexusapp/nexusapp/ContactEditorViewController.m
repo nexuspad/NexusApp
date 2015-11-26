@@ -147,14 +147,7 @@
                 ProfilePhotoService *uploader = [[ProfilePhotoService alloc] init];
                 NSData *imageData = UIImagePNGRepresentation(self.person.profileImage);
                 NSString *fileName = [NSString stringWithFormat:@"profile_%@.png", self.person.entryId];
-                [uploader addPhotoToContact:imageData fileName:fileName toEntry:self.person];
-                
-                // We also need to delete the original attachment if there is one
-                if (self.person.attachments != nil && [self.person.attachments count] > 0) {
-                    NPUpload *originalPhotoAtt = [self.person.attachments objectAtIndex:0];
-                    [self.entryService deleteAttachment:originalPhotoAtt];
-                    self.person.attachments = nil;
-                }
+                [uploader addPhotoToContact:imageData fileName:fileName toEntry:self.person];                
             }
 
             if (self.afterSavingDelegate != nil) {
@@ -257,8 +250,8 @@
         {
             if (self.photoHelper == nil) {
                 CGRect rect = CGRectMake(4.0, 4.0, 64.0, 64.0);
-                if (self.person.profileImage != nil) {
-                    self.photoHelper = [[PhotoHelper alloc] initWithExistingPhoto:self.person.profileImage isPlaceHolder:NO rect:rect];
+                if (_person.profileImageUrl != nil) {
+                    self.photoHelper = [[PhotoHelper alloc] initWithExistingPhoto:_person.profileImageUrl isPlaceHolder:NO rect:rect];
                 } else {
                     self.photoHelper = [[PhotoHelper alloc] initWithExistingPhoto:[UIImage imageNamed:@"avatar.png"] isPlaceHolder:YES rect:rect];
                 }

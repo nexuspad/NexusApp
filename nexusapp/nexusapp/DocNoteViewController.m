@@ -74,6 +74,9 @@
     
     if ([serviceResult isKindOfClass:[NPEntry class]]) {
         _doc = [NPDoc docFromEntry:serviceResult];
+        
+        DLog(@"%@", _doc.note);
+        
         [self.attachmentsCollectionView reloadData];
         
     } else if ([serviceResult isKindOfClass:[EntryActionResult class]]) {

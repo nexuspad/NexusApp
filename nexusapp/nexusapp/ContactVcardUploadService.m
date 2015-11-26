@@ -28,7 +28,7 @@
                                                               parameters:params
                                                constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                                                    [formData appendPartWithFileData:vcardData
-                                                                               name:@"filename"
+                                                                               name:@"file"
                                                                            fileName:[params valueForKey:@"file_name"]
                                                                            mimeType:@"application/octet-stream"];
                                                }
